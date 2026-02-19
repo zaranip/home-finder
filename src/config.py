@@ -234,7 +234,8 @@ MBTA_STATIONS = [
 
 # ─── Rating Thresholds ──────────────────────────────────────────────────────
 RATING_WEIGHTS = {
-    "price":            0.20,
+    "price":            0.10,
+    "price_per_bed":    0.10,
     "hoa":              0.10,
     "net_monthly_cost": 0.20,
     "commute_seaport":  0.15,
@@ -248,6 +249,7 @@ RATING_WEIGHTS = {
 # Score thresholds: (green_threshold, yellow_threshold) — above green = 3, between = 2, below yellow = 1
 RATING_THRESHOLDS = {
     "price":            (400_000, 500_000),       # < 400K = green, > 500K = red
+    "price_per_bed":    (200_000, 300_000),       # < 200K/bed = green, > 300K/bed = red
     "hoa":              (200, 400),               # < $200 = green, > $400 = red
     "net_monthly_cost": (2_000, 3_000),           # after roommate offset
     "commute_seaport":  (15, 30),                 # minutes

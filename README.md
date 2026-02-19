@@ -119,7 +119,8 @@ Control how much each factor matters in the final score:
 
 ```python
 RATING_WEIGHTS = {
-    "price":            0.20,   # How cheap is it?
+    "price":            0.10,   # How cheap is it (absolute)?
+    "price_per_bed":    0.10,   # How cheap per bedroom?
     "hoa":              0.10,   # Low HOA?
     "net_monthly_cost": 0.20,   # Affordable after roommate?
     "commute_seaport":  0.15,   # Short drive to Seaport?
@@ -140,6 +141,7 @@ Define what "good" and "bad" means for each metric:
 ```python
 RATING_THRESHOLDS = {
     "price":            (400_000, 500_000),   # < 400K = green, > 500K = red
+    "price_per_bed":    (200_000, 300_000),   # < 200K/bed = green, > 300K/bed = red
     "hoa":              (200, 400),            # < $200/mo = green, > $400/mo = red
     "net_monthly_cost": (2_000, 3_000),        # After roommate offset
     "commute_seaport":  (15, 30),              # Minutes

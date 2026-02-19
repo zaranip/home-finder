@@ -54,6 +54,12 @@ def score_listing(listing: dict[str, Any]) -> tuple[float, str, dict[str, int]]:
     thresholds = RATING_THRESHOLDS["price"]
     scores["price"] = _score_lower_is_better(listing.get("price"), thresholds[0], thresholds[1])
 
+    # Price per bedroom
+    thresholds = RATING_THRESHOLDS["price_per_bed"]
+    beds = listing.get("beds")
+    price_per_bed = listing.get("price", 0) / beds if beds and beds > 0 else None
+    scores["price_per_bed"] = _score_lower_is_better(price_per_bed, thresholds[0], thresholds[1])
+
     # HOA
     thresholds = RATING_THRESHOLDS["hoa"]
     hoa = listing.get("hoa") or 0
