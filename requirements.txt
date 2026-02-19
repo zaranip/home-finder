@@ -1,0 +1,8 @@
+# Redfin Listing Finder - Dependencies
+# Install: pip install -r requirements.txt
+
+# Excel workbook generation with formulas
+openpyxl>=3.1.0
+
+# HTTP requests (Redfin API, OSRM, Nominatim)
+requests>=2.31.0

@@ -1,0 +1,11 @@
+[project]
+name = "zillow-finder"
+version = "1.0.0"
+description = "Automated Zillow scraper for Boston-area real estate listings"
+requires-python = ">=3.11"
+
+[tool.basedpyright]
+pythonVersion = "3.11"
+typeCheckingMode = "basic"
+venvPath = "."
+extraPaths = ["."]
