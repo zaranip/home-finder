@@ -14,28 +14,12 @@ class TownEntry(TypedDict):
     zillow_slug: str   # kept for reference; not used by Redfin scraper
     zips: list[str]
 
-# ─── Redfin Region IDs (verified working) ────────────────────────────────────
-# region_type "2" = ZIP code search. All IDs confirmed returning correct MA cities.
-REDFIN_REGIONS: dict[str, dict[str, str]] = {
-    "Allston":    {"region_id": "639",  "region_type": "2"},
-    "Arlington":  {"region_id": "769",  "region_type": "2"},
-    "Belmont":    {"region_id": "773",  "region_type": "2"},
-    "Brighton":   {"region_id": "640",  "region_type": "2"},
-    "Brookline":  {"region_id": "747",  "region_type": "2"},
-    "Cambridge":  {"region_id": "643",  "region_type": "2"},
-    "Medford":    {"region_id": "657",  "region_type": "2"},
-    "Newton":     {"region_id": "757",  "region_type": "2"},
-    "Quincy":     {"region_id": "660",  "region_type": "2"},
-    "Somerville": {"region_id": "648",  "region_type": "2"},
-    "Waltham":    {"region_id": "750",  "region_type": "2"},
-    "Watertown":  {"region_id": "767",  "region_type": "2"},
-}
-
 # ─── Paths ───────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
 LISTINGS_XLSX = DATA_DIR / "listings.xlsx"
 SEEN_IDS_FILE = DATA_DIR / "seen_ids.json"
+REGION_CACHE_FILE = DATA_DIR / "region_cache.json"
 
 # ─── Price / HOA Filters ────────────────────────────────────────────────────
 MAX_PRICE = 600_000
@@ -264,7 +248,7 @@ RATING_YELLOW_MIN = 1.7   # weighted score >= 1.7 → Yellow, below → Red
 # ─── Excel Defaults (Assumptions sheet) ─────────────────────────────────────
 EXCEL_DEFAULTS = {
     "interest_rate":     0.065,   # 6.5%
-    "down_payment_pct":  0.20,    # 20%
+    "down_payment":     20_000,  # $20k fixed
     "loan_term_years":   30,
     "property_tax_rate": 0.012,   # 1.2%
     "insurance_monthly": 150,

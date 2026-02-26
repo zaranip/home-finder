@@ -131,7 +131,7 @@ def estimate_net_monthly_cost(
     hoa: int | float,
     rental_estimate: int | float,
     interest_rate: float = 0.065,
-    down_payment_pct: float = 0.20,
+    down_payment: int | float = 20_000,
     loan_term_years: int = 30,
     property_tax_rate: float = 0.012,
     insurance_monthly: int = 150,
@@ -144,7 +144,7 @@ def estimate_net_monthly_cost(
 
     Returns: estimated net monthly cost after roommate offset.
     """
-    down_payment = price * down_payment_pct
+    loan_amount = price - down_payment
     loan_amount = price - down_payment
     monthly_rate = interest_rate / 12
     n_payments = loan_term_years * 12

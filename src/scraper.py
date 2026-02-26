@@ -2,10 +2,11 @@
 Redfin scraper using the public GIS JSON endpoint.
 
 Architecture:
-1. Hit /stingray/api/gis for each town's region_id (ZIP-based)
-2. Strip {}&&  prefix, parse JSON -> extract homes array
-3. Map Redfin fields to the listing dict format expected by run.py
-4. Deduplicate via seen_ids.json using Redfin propertyId
+1. Resolve each ZIP code in ALLOWED_TOWNS to a Redfin region_id (via autocomplete API)
+2. Hit /stingray/api/gis for each resolved ZIP region
+3. Strip {}&&  prefix, parse JSON -> extract homes array
+4. Map Redfin fields to the listing dict format expected by run.py
+5. Deduplicate via seen_ids.json using Redfin propertyId
 """
 
 from __future__ import annotations
@@ -19,8 +20,9 @@ from typing import Any
 import requests
 
 from .config import (
+    ALLOWED_TOWNS,
     MAX_PRICE,
-    REDFIN_REGIONS,
+    REGION_CACHE_FILE,
     SCRAPE_DELAY_MAX,
     SCRAPE_DELAY_MIN,
     SEEN_IDS_FILE,
@@ -80,10 +82,118 @@ def _safe_get(d: dict | None, *keys: str, default: Any = None) -> Any:
     return current
 
 
+# ─── Region ID Resolution ───────────────────────────────────────────────────
+
+def _resolve_region_id(zip_code: str) -> dict[str, str] | None:
+    """
+    Resolve a ZIP code to a Redfin region_id by scraping the ZIP search page.
+
+    Redfin embeds region metadata in each search page's ``createPreloadedMap``
+    call as a URL-encoded JSON blob.  We extract the ``id`` and ``type`` fields
+    from this blob.  The pattern in the raw HTML (URL-encoded) is::
+
+        %22id%22%3A<REGION_ID>%2C%22type%22%3A2%2C%22name%22%3A%22<ZIP>%22
+
+    Returns {"region_id": "...", "region_type": "..."} or None on failure.
+    """
+    import re as _re
+
+    # URL-encoded pattern: "id":<digits>,"type":<digits>,"name":"<zip>"
+    pattern = r'%22id%22%3A(\d+)%2C%22type%22%3A(\d+)%2C%22name%22%3A%22' + zip_code + r'%22'
+
+    for attempt in range(MAX_RETRIES):
+        try:
+            resp = _session.get(
+                f"https://www.redfin.com/zipcode/{zip_code}",
+                headers=_redfin_headers(),
+                timeout=20,
+            )
+
+            if resp.status_code == 403:
+                logger.warning("403 from Redfin page for ZIP %s (attempt %d)", zip_code, attempt + 1)
+                _delay(5, 15)
+                continue
+
+            resp.raise_for_status()
+
+            match = _re.search(pattern, resp.text)
+            if match:
+                return {"region_id": match.group(1), "region_type": match.group(2)}
+
+            logger.warning("Could not extract region_id from page for ZIP %s", zip_code)
+            return None
+
+        except requests.RequestException:
+            logger.exception("Request failed resolving ZIP %s (attempt %d)", zip_code, attempt + 1)
+            if attempt < MAX_RETRIES - 1:
+                _delay(3, 8)
+
+    logger.error("All %d attempts failed to resolve ZIP %s", MAX_RETRIES, zip_code)
+    return None
+
+
+def _load_region_cache() -> dict[str, dict[str, str]]:
+    """Load cached ZIP -> region info mappings from disk."""
+    if REGION_CACHE_FILE.exists():
+        try:
+            return json.loads(REGION_CACHE_FILE.read_text())
+        except (json.JSONDecodeError, TypeError):
+            return {}
+    return {}
+
+
+def _save_region_cache(cache: dict[str, dict[str, str]]) -> None:
+    """Persist region cache to disk."""
+    REGION_CACHE_FILE.parent.mkdir(parents=True, exist_ok=True)
+    REGION_CACHE_FILE.write_text(json.dumps(cache, indent=2))
+
+
+def resolve_all_zips() -> dict[str, dict[str, str]]:
+    """
+    Resolve all ZIP codes from ALLOWED_TOWNS to Redfin region IDs.
+
+    Uses a disk cache (region_cache.json) to avoid redundant API calls.
+    Only hits the autocomplete API for ZIPs not already cached.
+
+    Returns: {zip_code: {"region_id": "...", "region_type": "..."}, ...}
+    """
+    cache = _load_region_cache()
+
+    all_zips = [z for town in ALLOWED_TOWNS for z in town["zips"]]
+    missing = [z for z in all_zips if z not in cache]
+
+    if not missing:
+        logger.info("All %d ZIP region IDs loaded from cache", len(all_zips))
+        return cache
+
+    logger.info("Resolving %d new ZIP codes (of %d total)...", len(missing), len(all_zips))
+    updated = False
+
+    for zip_code in missing:
+        result = _resolve_region_id(zip_code)
+
+        if result:
+            cache[zip_code] = result
+            updated = True
+            logger.info("  ZIP %s -> region_id=%s (type=%s)",
+                        zip_code, result["region_id"], result["region_type"])
+        else:
+            logger.warning("  ZIP %s -> could not resolve (will skip)", zip_code)
+
+        _delay(1, 2)  # polite delay between autocomplete requests
+
+    if updated:
+        _save_region_cache(cache)
+
+    resolved = sum(1 for z in all_zips if z in cache)
+    logger.info("Region resolution complete: %d/%d ZIPs resolved", resolved, len(all_zips))
+    return cache
+
+
 # ─── GIS Endpoint ────────────────────────────────────────────────────────────
 
-def search_town(
-    town_name: str,
+def search_zip(
+    label: str,
     region_id: str,
     region_type: str = "2",
     max_price: int = MAX_PRICE,
@@ -113,7 +223,7 @@ def search_town(
             )
 
             if resp.status_code == 403:
-                logger.warning("403 from Redfin GIS for %s (attempt %d/%d)", town_name, attempt + 1, MAX_RETRIES)
+                logger.warning("403 from Redfin GIS for %s (attempt %d/%d)", label, attempt + 1, MAX_RETRIES)
                 _delay(5, 15)
                 continue
 
@@ -126,19 +236,19 @@ def search_town(
 
             data = json.loads(text)
             homes = data.get("payload", {}).get("homes", [])
-            logger.info("%s (region %s): %d homes returned", town_name, region_id, len(homes))
+            logger.info("%s (region %s): %d homes returned", label, region_id, len(homes))
             return homes
 
         except json.JSONDecodeError:
-            logger.exception("JSON parse error for %s (attempt %d)", town_name, attempt + 1)
+            logger.exception("JSON parse error for %s (attempt %d)", label, attempt + 1)
             if attempt < MAX_RETRIES - 1:
                 _delay(3, 8)
         except requests.RequestException:
-            logger.exception("Request failed for %s (attempt %d)", town_name, attempt + 1)
+            logger.exception("Request failed for %s (attempt %d)", label, attempt + 1)
             if attempt < MAX_RETRIES - 1:
                 _delay(3, 8)
 
-    logger.error("All %d attempts failed for %s", MAX_RETRIES, town_name)
+    logger.error("All %d attempts failed for %s", MAX_RETRIES, label)
     return []
 
 
@@ -251,27 +361,43 @@ def save_seen_ids(ids: set[str]) -> None:
 
 def scrape_all_towns(proxy_url: str | None = None) -> list[dict[str, Any]]:
     """
-    Scrape all configured towns via Redfin GIS endpoint.
+    Scrape all configured ZIP codes via Redfin GIS endpoint.
 
-    The proxy_url parameter is accepted for interface compatibility with run.py
-    but is not typically needed — Redfin's GIS endpoint works without proxies.
+    Resolves each ZIP in ALLOWED_TOWNS to a Redfin region_id (cached after
+    first run), then queries the GIS endpoint for each ZIP individually.
+    This ensures full coverage of multi-ZIP cities like Waltham and Newton.
 
     Returns list of listing dicts ready for filtering/enrichment.
     """
     if proxy_url:
         _session.proxies = {"http": proxy_url, "https": proxy_url}
 
+    # Build ZIP -> town name mapping
+    zip_to_town: dict[str, str] = {}
+    for town in ALLOWED_TOWNS:
+        for z in town["zips"]:
+            zip_to_town[z] = town["name"]
+
+    # Resolve all ZIPs to Redfin region IDs
+    region_cache = resolve_all_zips()
+
     seen_ids = load_seen_ids()
     all_listings: list[dict[str, Any]] = []
 
-    for town_name, region_info in REDFIN_REGIONS.items():
+    for zip_code, town_name in zip_to_town.items():
+        region_info = region_cache.get(zip_code)
+        if not region_info:
+            logger.warning("No region_id for ZIP %s (%s), skipping", zip_code, town_name)
+            continue
+
         region_id = region_info["region_id"]
-        region_type = region_info.get("region_type", "2")
+        region_type = region_info["region_type"]
+        label = f"{town_name} ({zip_code})"
 
-        logger.info("Searching %s (region_id=%s)...", town_name, region_id)
+        logger.info("Searching %s (region_id=%s)...", label, region_id)
 
-        homes = search_town(town_name, region_id, region_type)
-        _delay(2, 5)  # polite delay between town queries
+        homes = search_zip(label, region_id, region_type)
+        _delay(2, 5)  # polite delay between ZIP queries
 
         for home in homes:
             listing = extract_listing(home, town_name)

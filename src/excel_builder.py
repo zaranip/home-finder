@@ -14,7 +14,7 @@ from .config import EXCEL_DEFAULTS
 
 ASSUMPTION_ROWS = [
     ("Interest Rate", "interest_rate", "0.00%"),
-    ("Down Payment %", "down_payment_pct", "0%"),
+    ("Down Payment $", "down_payment", "$#,##0"),
     ("Loan Term Years", "loan_term_years", "#,##0"),
     ("Property Tax Rate", "property_tax_rate", "0.00%"),
     ("Insurance $/mo", "insurance_monthly", "$#,##0"),
@@ -121,7 +121,7 @@ def build_workbook(listings: list[dict[str, object]], output_path: Path) -> None
         )
         listings_ws.cell(row=row_idx, column=10, value=listing["parking"])
 
-        listings_ws.cell(row=row_idx, column=11, value=f"=D{row_idx}*Assumptions!B3")
+        listings_ws.cell(row=row_idx, column=11, value=f"=Assumptions!B3")
         listings_ws.cell(row=row_idx, column=12, value=f"=D{row_idx}-K{row_idx}")
         listings_ws.cell(
             row=row_idx,
