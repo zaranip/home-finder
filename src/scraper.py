@@ -359,56 +359,61 @@ def save_seen_ids(ids: set[str]) -> None:
 
 # ─── Main Scrape Orchestrator ───────────────────────────────────────────────
 
-def scrape_all_towns(proxy_url: str | None = None) -> list[dict[str, Any]]:
+def scrape_all_towns(proxy_url: str | None = None) -> tuple[list[dict[str, Any]], set[str]]:
     """
     Scrape all configured ZIP codes via Redfin GIS endpoint.
-
+    
     Resolves each ZIP in ALLOWED_TOWNS to a Redfin region_id (cached after
     first run), then queries the GIS endpoint for each ZIP individually.
     This ensures full coverage of multi-ZIP cities like Waltham and Newton.
-
-    Returns list of listing dicts ready for filtering/enrichment.
+    
+    Returns:
+        new_listings: listing dicts not previously seen (need enrichment).
+        active_ids:   set of ALL property IDs currently on Redfin, used by
+                      the caller to prune stale listings from the store.
     """
     if proxy_url:
         _session.proxies = {"http": proxy_url, "https": proxy_url}
-
+    
     # Build ZIP -> town name mapping
     zip_to_town: dict[str, str] = {}
     for town in ALLOWED_TOWNS:
         for z in town["zips"]:
             zip_to_town[z] = town["name"]
-
+    
     # Resolve all ZIPs to Redfin region IDs
     region_cache = resolve_all_zips()
-
+    
     seen_ids = load_seen_ids()
-    all_listings: list[dict[str, Any]] = []
-
+    new_listings: list[dict[str, Any]] = []
+    active_ids: set[str] = set()
+    
     for zip_code, town_name in zip_to_town.items():
         region_info = region_cache.get(zip_code)
         if not region_info:
             logger.warning("No region_id for ZIP %s (%s), skipping", zip_code, town_name)
             continue
-
+    
         region_id = region_info["region_id"]
         region_type = region_info["region_type"]
         label = f"{town_name} ({zip_code})"
-
+    
         logger.info("Searching %s (region_id=%s)...", label, region_id)
-
+    
         homes = search_zip(label, region_id, region_type)
         _delay(2, 5)  # polite delay between ZIP queries
-
+    
         for home in homes:
             listing = extract_listing(home, town_name)
             if listing is None:
                 continue
-
+    
             pid = listing["zpid"]
+            active_ids.add(pid)  # Track every listing Redfin currently shows
+    
             if pid in seen_ids:
-                logger.debug("Skipping seen listing %s", pid)
-                continue
-
+                continue  # Already processed — skip enrichment
+    
             # Fill defaults for missing fields
             if listing["hoa"] is None:
                 listing["hoa"] = 0
@@ -416,10 +421,16 @@ def scrape_all_towns(proxy_url: str | None = None) -> list[dict[str, Any]]:
                 listing["in_unit_laundry"] = False
             if listing["parking"] is None:
                 listing["parking"] = "Unknown"
-
-            all_listings.append(listing)
+    
+            new_listings.append(listing)
             seen_ids.add(pid)
-
+    
+    # Prune seen_ids of listings no longer on Redfin
+    stale_ids = seen_ids - active_ids
+    if stale_ids:
+        logger.info("Removing %d stale IDs from seen_ids", len(stale_ids))
+        seen_ids -= stale_ids
+    
     save_seen_ids(seen_ids)
-    logger.info("Total new listings found: %d", len(all_listings))
-    return all_listings
+    logger.info("Total new listings found: %d | Active on Redfin: %d", len(new_listings), len(active_ids))
+    return new_listings, active_ids

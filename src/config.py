@@ -20,6 +20,7 @@ DATA_DIR = PROJECT_ROOT / "data"
 LISTINGS_XLSX = DATA_DIR / "listings.xlsx"
 SEEN_IDS_FILE = DATA_DIR / "seen_ids.json"
 REGION_CACHE_FILE = DATA_DIR / "region_cache.json"
+LISTINGS_STORE = DATA_DIR / "listings_store.json"
 
 # ─── Price / HOA Filters ────────────────────────────────────────────────────
 MAX_PRICE = 600_000
