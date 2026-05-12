@@ -1,0 +1,666 @@
+2026-04-15 13:32:40,914 [INFO] redfin-finder-mfh: ============================================================
+2026-04-15 13:32:40,914 [INFO] redfin-finder-mfh: Redfin MFH Finder run started at 2026-04-15 13:32:40
+2026-04-15 13:32:40,914 [INFO] redfin-finder-mfh: ============================================================
+2026-04-15 13:32:40,915 [INFO] redfin-finder-mfh: Loaded 0 existing MFH listings from store
+2026-04-15 13:32:40,915 [INFO] redfin-finder-mfh: Step 2/6: Scraping Redfin for new multi-family listings...
+2026-04-15 13:32:40,927 [INFO] src.scraper: All 38 ZIP region IDs loaded from cache
+2026-04-15 13:32:40,928 [INFO] src.scraper: Searching Quincy (02169) (region_id=660)...
+2026-04-15 13:32:41,340 [INFO] src.scraper: Quincy (02169) (region 660): 74 homes returned
+2026-04-15 13:32:44,814 [INFO] src.scraper: Searching Quincy (02170) (region_id=661)...
+2026-04-15 13:32:45,001 [INFO] src.scraper: Quincy (02170) (region 661): 12 homes returned
+2026-04-15 13:32:49,720 [INFO] src.scraper: Searching Quincy (02171) (region_id=662)...
+2026-04-15 13:32:50,038 [INFO] src.scraper: Quincy (02171) (region 662): 24 homes returned
+2026-04-15 13:32:53,347 [INFO] src.scraper: Searching Waltham (02451) (region_id=750)...
+2026-04-15 13:32:53,617 [INFO] src.scraper: Waltham (02451) (region 750): 11 homes returned
+2026-04-15 13:32:56,168 [INFO] src.scraper: Searching Waltham (02452) (region_id=751)...
+2026-04-15 13:32:56,373 [INFO] src.scraper: Waltham (02452) (region 751): 7 homes returned
+2026-04-15 13:33:00,186 [INFO] src.scraper: Searching Waltham (02453) (region_id=752)...
+2026-04-15 13:33:00,388 [INFO] src.scraper: Waltham (02453) (region 752): 38 homes returned
+2026-04-15 13:33:03,955 [INFO] src.scraper: Searching Waltham (02454) (region_id=753)...
+2026-04-15 13:33:04,165 [INFO] src.scraper: Waltham (02454) (region 753): 0 homes returned
+2026-04-15 13:33:07,391 [INFO] src.scraper: Searching Newton (02458) (region_id=757)...
+2026-04-15 13:33:07,649 [INFO] src.scraper: Newton (02458) (region 757): 27 homes returned
+2026-04-15 13:33:09,899 [INFO] src.scraper: Searching Newton (02459) (region_id=758)...
+2026-04-15 13:33:10,163 [INFO] src.scraper: Newton (02459) (region 758): 48 homes returned
+2026-04-15 13:33:12,346 [INFO] src.scraper: Searching Newton (02460) (region_id=759)...
+2026-04-15 13:33:12,768 [INFO] src.scraper: Newton (02460) (region 759): 18 homes returned
+2026-04-15 13:33:14,850 [INFO] src.scraper: Searching Newton (02461) (region_id=760)...
+2026-04-15 13:33:15,124 [INFO] src.scraper: Newton (02461) (region 760): 27 homes returned
+2026-04-15 13:33:19,539 [INFO] src.scraper: Searching Newton (02462) (region_id=761)...
+2026-04-15 13:33:19,729 [INFO] src.scraper: Newton (02462) (region 761): 2 homes returned
+2026-04-15 13:33:22,379 [INFO] src.scraper: Searching Newton (02464) (region_id=762)...
+2026-04-15 13:33:22,597 [INFO] src.scraper: Newton (02464) (region 762): 8 homes returned
+2026-04-15 13:33:25,801 [INFO] src.scraper: Searching Newton (02465) (region_id=763)...
+2026-04-15 13:33:26,000 [INFO] src.scraper: Newton (02465) (region 763): 30 homes returned
+2026-04-15 13:33:30,143 [INFO] src.scraper: Searching Newton (02466) (region_id=764)...
+2026-04-15 13:33:30,379 [INFO] src.scraper: Newton (02466) (region 764): 9 homes returned
+2026-04-15 13:33:33,155 [INFO] src.scraper: Searching Newton (02467) (region_id=765)...
+2026-04-15 13:33:33,457 [INFO] src.scraper: Newton (02467) (region 765): 63 homes returned
+2026-04-15 13:33:37,577 [INFO] src.scraper: Searching Newton (02468) (region_id=766)...
+2026-04-15 13:33:37,805 [INFO] src.scraper: Newton (02468) (region 766): 23 homes returned
+2026-04-15 13:33:41,472 [INFO] src.scraper: Searching Watertown (02471) (region_id=767)...
+2026-04-15 13:33:41,856 [INFO] src.scraper: Watertown (02471) (region 767): 114 homes returned
+2026-04-15 13:33:44,098 [INFO] src.scraper: Searching Watertown (02472) (region_id=768)...
+2026-04-15 13:33:44,416 [INFO] src.scraper: Watertown (02472) (region 768): 55 homes returned
+2026-04-15 13:33:46,750 [INFO] src.scraper: Searching Brighton (02135) (region_id=640)...
+2026-04-15 13:33:47,186 [INFO] src.scraper: Brighton (02135) (region 640): 143 homes returned
+2026-04-15 13:33:51,479 [INFO] src.scraper: Searching Allston (02134) (region_id=639)...
+2026-04-15 13:33:51,785 [INFO] src.scraper: Allston (02134) (region 639): 46 homes returned
+2026-04-15 13:33:56,546 [INFO] src.scraper: Searching Somerville (02143) (region_id=648)...
+2026-04-15 13:33:56,805 [INFO] src.scraper: Somerville (02143) (region 648): 58 homes returned
+2026-04-15 13:33:59,719 [INFO] src.scraper: Searching Somerville (02144) (region_id=649)...
+2026-04-15 13:33:59,984 [INFO] src.scraper: Somerville (02144) (region 649): 39 homes returned
+2026-04-15 13:34:04,677 [INFO] src.scraper: Searching Somerville (02145) (region_id=650)...
+2026-04-15 13:34:05,102 [INFO] src.scraper: Somerville (02145) (region 650): 63 homes returned
+2026-04-15 13:34:09,497 [INFO] src.scraper: Searching Cambridge (02138) (region_id=643)...
+2026-04-15 13:34:09,814 [INFO] src.scraper: Cambridge (02138) (region 643): 72 homes returned
+2026-04-15 13:34:12,451 [INFO] src.scraper: Searching Cambridge (02139) (region_id=644)...
+2026-04-15 13:34:12,778 [INFO] src.scraper: Cambridge (02139) (region 644): 39 homes returned
+2026-04-15 13:34:17,702 [INFO] src.scraper: Searching Cambridge (02140) (region_id=645)...
+2026-04-15 13:34:17,913 [INFO] src.scraper: Cambridge (02140) (region 645): 26 homes returned
+2026-04-15 13:34:20,618 [INFO] src.scraper: Searching Cambridge (02141) (region_id=646)...
+2026-04-15 13:34:20,872 [INFO] src.scraper: Cambridge (02141) (region 646): 41 homes returned
+2026-04-15 13:34:24,329 [INFO] src.scraper: Searching Cambridge (02142) (region_id=647)...
+2026-04-15 13:34:24,512 [INFO] src.scraper: Cambridge (02142) (region 647): 7 homes returned
+2026-04-15 13:34:28,414 [INFO] src.scraper: Searching Brookline (02445) (region_id=747)...
+2026-04-15 13:34:28,755 [INFO] src.scraper: Brookline (02445) (region 747): 69 homes returned
+2026-04-15 13:34:32,367 [INFO] src.scraper: Searching Brookline (02446) (region_id=748)...
+2026-04-15 13:34:32,648 [INFO] src.scraper: Brookline (02446) (region 748): 63 homes returned
+2026-04-15 13:34:37,145 [INFO] src.scraper: Searching Brookline (02447) (region_id=749)...
+2026-04-15 13:34:37,632 [INFO] src.scraper: Brookline (02447) (region 749): 297 homes returned
+2026-04-15 13:34:40,915 [INFO] src.scraper: Searching Medford (02155) (region_id=657)...
+2026-04-15 13:34:41,259 [INFO] src.scraper: Medford (02155) (region 657): 81 homes returned
+2026-04-15 13:34:44,947 [INFO] src.scraper: Searching Medford (02156) (region_id=658)...
+2026-04-15 13:34:45,209 [INFO] src.scraper: Medford (02156) (region 658): 67 homes returned
+2026-04-15 13:34:47,328 [INFO] src.scraper: Searching Arlington (02474) (region_id=769)...
+2026-04-15 13:34:47,527 [INFO] src.scraper: Arlington (02474) (region 769): 30 homes returned
+2026-04-15 13:34:52,068 [INFO] src.scraper: Searching Arlington (02476) (region_id=771)...
+2026-04-15 13:34:52,246 [INFO] src.scraper: Arlington (02476) (region 771): 15 homes returned
+2026-04-15 13:34:55,905 [INFO] src.scraper: Searching Belmont (02478) (region_id=773)...
+2026-04-15 13:34:56,199 [INFO] src.scraper: Belmont (02478) (region 773): 35 homes returned
+2026-04-15 13:35:00,103 [INFO] src.scraper: Searching Malden (02148) (region_id=651)...
+2026-04-15 13:35:00,396 [INFO] src.scraper: Malden (02148) (region 651): 33 homes returned
+2026-04-15 13:35:03,235 [INFO] src.scraper: Total new listings found: 1421 | Active on Redfin: 1421
+2026-04-15 13:35:03,237 [INFO] redfin-finder-mfh: New listings from scraper: 1421 | Active on Redfin: 1421
+2026-04-15 13:35:03,237 [INFO] redfin-finder-mfh: Step 3/6: No stale listings to remove
+2026-04-15 13:35:03,237 [INFO] redfin-finder-mfh: Step 4/6: Filtering new listings...
+2026-04-15 13:35:03,245 [INFO] redfin-finder-mfh: New listings after location/price filter: 142
+2026-04-15 13:35:03,245 [INFO] redfin-finder-mfh: Step 5/6: Enriching 142 new listings...
+2026-04-15 13:35:03,246 [INFO] redfin-finder-mfh:   [1/142] Driving times + details for: 25 West Howard St Unit G3, Quincy, MA 02169
+2026-04-15 13:35:05,186 [WARNING] src.scraper: 403 fetching details for property 9031079 (attempt 1)
+2026-04-15 13:35:17,121 [WARNING] src.scraper: 403 fetching details for property 9031079 (attempt 2)
+2026-04-15 13:35:23,530 [WARNING] src.scraper: 403 fetching details for property 9031079 (attempt 3)
+2026-04-15 13:35:34,438 [INFO] redfin-finder-mfh:   [2/142] Driving times + details for: 14 Presidents Ln #10, Quincy, MA 02169
+2026-04-15 13:35:36,059 [WARNING] src.scraper: 403 fetching details for property 8931158 (attempt 1)
+2026-04-15 13:35:50,869 [WARNING] src.scraper: 403 fetching details for property 8931158 (attempt 2)
+2026-04-15 13:35:58,405 [WARNING] src.scraper: 403 fetching details for property 8931158 (attempt 3)
+2026-04-15 13:36:10,103 [INFO] redfin-finder-mfh:   [3/142] Driving times + details for: 150 Madison Ave, Quincy, MA 02169
+2026-04-15 13:36:11,859 [WARNING] src.scraper: 403 fetching details for property 8954563 (attempt 1)
+2026-04-15 13:36:20,181 [WARNING] src.scraper: 403 fetching details for property 8954563 (attempt 2)
+2026-04-15 13:36:30,508 [WARNING] src.scraper: 403 fetching details for property 8954563 (attempt 3)
+2026-04-15 13:36:39,258 [INFO] redfin-finder-mfh:   [4/142] Driving times + details for: 86 East Howard St #107, Quincy, MA 02169
+2026-04-15 13:36:41,152 [WARNING] src.scraper: 403 fetching details for property 9036654 (attempt 1)
+2026-04-15 13:36:47,642 [WARNING] src.scraper: 403 fetching details for property 9036654 (attempt 2)
+2026-04-15 13:36:53,929 [WARNING] src.scraper: 403 fetching details for property 9036654 (attempt 3)
+2026-04-15 13:37:03,733 [INFO] redfin-finder-mfh:   [5/142] Driving times + details for: 156 West St, Quincy, MA 02169
+2026-04-15 13:37:05,630 [WARNING] src.scraper: 403 fetching details for property 8965188 (attempt 1)
+2026-04-15 13:37:20,341 [WARNING] src.scraper: 403 fetching details for property 8965188 (attempt 2)
+2026-04-15 13:37:31,881 [WARNING] src.scraper: 403 fetching details for property 8965188 (attempt 3)
+2026-04-15 13:37:41,582 [INFO] redfin-finder-mfh:   [6/142] Driving times + details for: 16 Littlefield St, Quincy, MA 02169
+2026-04-15 13:37:43,415 [WARNING] src.scraper: 403 fetching details for property 8913868 (attempt 1)
+2026-04-15 13:37:55,793 [WARNING] src.scraper: 403 fetching details for property 8913868 (attempt 2)
+2026-04-15 13:38:06,387 [WARNING] src.scraper: 403 fetching details for property 8913868 (attempt 3)
+2026-04-15 13:38:15,578 [INFO] redfin-finder-mfh:   [7/142] Driving times + details for: 27 Sixth Ave, Quincy, MA 02169
+2026-04-15 13:38:17,260 [WARNING] src.scraper: 403 fetching details for property 8946597 (attempt 1)
+2026-04-15 13:38:22,665 [WARNING] src.scraper: 403 fetching details for property 8946597 (attempt 2)
+2026-04-15 13:38:31,166 [WARNING] src.scraper: 403 fetching details for property 8946597 (attempt 3)
+2026-04-15 13:38:41,392 [INFO] redfin-finder-mfh:   [8/142] Driving times + details for: 388 Washington St #101, Quincy, MA 02169
+2026-04-15 13:38:43,320 [WARNING] src.scraper: 403 fetching details for property 201094286 (attempt 1)
+2026-04-15 13:38:50,372 [WARNING] src.scraper: 403 fetching details for property 201094286 (attempt 2)
+2026-04-15 13:38:58,887 [WARNING] src.scraper: 403 fetching details for property 201094286 (attempt 3)
+2026-04-15 13:39:11,143 [INFO] redfin-finder-mfh:   [9/142] Driving times + details for: 200 Falls Blvd Unit E101, Quincy, MA 02169
+2026-04-15 13:39:12,821 [WARNING] src.scraper: 403 fetching details for property 11496568 (attempt 1)
+2026-04-15 13:39:25,383 [WARNING] src.scraper: 403 fetching details for property 11496568 (attempt 2)
+2026-04-15 13:39:36,503 [WARNING] src.scraper: 403 fetching details for property 11496568 (attempt 3)
+2026-04-15 13:39:51,041 [INFO] redfin-finder-mfh:   [10/142] Driving times + details for: 195 Thomas Burgin Pkwy #301, Quincy, MA 02169
+2026-04-15 13:39:52,769 [WARNING] src.scraper: 403 fetching details for property 8931809 (attempt 1)
+2026-04-15 13:40:03,842 [WARNING] src.scraper: 403 fetching details for property 8931809 (attempt 2)
+2026-04-15 13:40:14,539 [WARNING] src.scraper: 403 fetching details for property 8931809 (attempt 3)
+2026-04-15 13:40:21,415 [INFO] redfin-finder-mfh:   [11/142] Driving times + details for: 21 Totman St #204, Quincy, MA 02169
+2026-04-15 13:40:23,172 [WARNING] src.scraper: 403 fetching details for property 196651838 (attempt 1)
+2026-04-15 13:40:29,989 [WARNING] src.scraper: 403 fetching details for property 196651838 (attempt 2)
+2026-04-15 13:40:42,582 [WARNING] src.scraper: 403 fetching details for property 196651838 (attempt 3)
+2026-04-15 13:40:53,085 [INFO] redfin-finder-mfh:   [12/142] Driving times + details for: 585 Washington St #202, Quincy, MA 02169
+2026-04-15 13:40:54,916 [WARNING] src.scraper: 403 fetching details for property 200582027 (attempt 1)
+2026-04-15 13:41:00,648 [WARNING] src.scraper: 403 fetching details for property 200582027 (attempt 2)
+2026-04-15 13:41:11,944 [WARNING] src.scraper: 403 fetching details for property 200582027 (attempt 3)
+2026-04-15 13:41:25,227 [INFO] redfin-finder-mfh:   [13/142] Driving times + details for: 21 Totman St #403, Quincy, MA 02169
+2026-04-15 13:41:27,066 [WARNING] src.scraper: 403 fetching details for property 200992802 (attempt 1)
+2026-04-15 13:41:35,495 [WARNING] src.scraper: 403 fetching details for property 200992802 (attempt 2)
+2026-04-15 13:41:40,647 [WARNING] src.scraper: 403 fetching details for property 200992802 (attempt 3)
+2026-04-15 13:41:46,968 [INFO] redfin-finder-mfh:   [14/142] Driving times + details for: 20 Whitney Unit U:1, Quincy, MA 02169
+2026-04-15 13:41:48,868 [WARNING] src.scraper: 403 fetching details for property 200248173 (attempt 1)
+2026-04-15 13:42:00,201 [WARNING] src.scraper: 403 fetching details for property 200248173 (attempt 2)
+2026-04-15 13:42:11,355 [WARNING] src.scraper: 403 fetching details for property 200248173 (attempt 3)
+2026-04-15 13:42:20,782 [INFO] redfin-finder-mfh:   [15/142] Driving times + details for: 1-Bedroom Plan, Quincy, MA 02169
+2026-04-15 13:42:22,659 [WARNING] src.scraper: 403 fetching details for property 197950895 (attempt 1)
+2026-04-15 13:42:28,111 [WARNING] src.scraper: 403 fetching details for property 197950895 (attempt 2)
+2026-04-15 13:42:34,472 [WARNING] src.scraper: 403 fetching details for property 197950895 (attempt 3)
+2026-04-15 13:42:46,183 [INFO] redfin-finder-mfh:   [16/142] Driving times + details for: 2-Bedrooms Plan, Quincy, MA 02169
+2026-04-15 13:42:47,831 [WARNING] src.scraper: 403 fetching details for property 197950891 (attempt 1)
+2026-04-15 13:43:02,642 [WARNING] src.scraper: 403 fetching details for property 197950891 (attempt 2)
+2026-04-15 13:43:13,757 [WARNING] src.scraper: 403 fetching details for property 197950891 (attempt 3)
+2026-04-15 13:43:20,709 [INFO] redfin-finder-mfh:   [17/142] Driving times + details for: 20 Whitney Rd #101, Quincy, MA 02169
+2026-04-15 13:43:22,566 [WARNING] src.scraper: 403 fetching details for property 196906729 (attempt 1)
+2026-04-15 13:43:35,300 [WARNING] src.scraper: 403 fetching details for property 196906729 (attempt 2)
+2026-04-15 13:43:47,314 [WARNING] src.scraper: 403 fetching details for property 196906729 (attempt 3)
+2026-04-15 13:43:55,155 [INFO] redfin-finder-mfh:   [18/142] Driving times + details for: 202 Manet Ave, Quincy, MA 02169
+2026-04-15 13:43:56,976 [WARNING] src.scraper: 403 fetching details for property 40390106 (attempt 1)
+2026-04-15 13:44:03,702 [WARNING] src.scraper: 403 fetching details for property 40390106 (attempt 2)
+2026-04-15 13:44:14,267 [WARNING] src.scraper: 403 fetching details for property 40390106 (attempt 3)
+2026-04-15 13:44:27,501 [INFO] redfin-finder-mfh:   [19/142] Driving times + details for: 18 Allerton St, Quincy, MA 02169
+2026-04-15 13:44:29,131 [WARNING] src.scraper: 403 fetching details for property 110011603 (attempt 1)
+2026-04-15 13:44:35,897 [WARNING] src.scraper: 403 fetching details for property 110011603 (attempt 2)
+2026-04-15 13:44:44,441 [WARNING] src.scraper: 403 fetching details for property 110011603 (attempt 3)
+2026-04-15 13:44:49,694 [INFO] redfin-finder-mfh:   [20/142] Driving times + details for: 134 Sherman St, Quincy, MA 02170
+2026-04-15 13:44:51,399 [WARNING] src.scraper: 403 fetching details for property 8992856 (attempt 1)
+2026-04-15 13:44:58,361 [WARNING] src.scraper: 403 fetching details for property 8992856 (attempt 2)
+2026-04-15 13:45:12,905 [WARNING] src.scraper: 403 fetching details for property 8992856 (attempt 3)
+2026-04-15 13:45:26,931 [INFO] redfin-finder-mfh:   [21/142] Driving times + details for: 133 Commander #219, North Quincy, MA 02171
+2026-04-15 13:45:28,785 [WARNING] src.scraper: 403 fetching details for property 201390663 (attempt 1)
+2026-04-15 13:45:35,704 [WARNING] src.scraper: 403 fetching details for property 201390663 (attempt 2)
+2026-04-15 13:45:43,230 [WARNING] src.scraper: 403 fetching details for property 201390663 (attempt 3)
+2026-04-15 13:45:52,272 [INFO] redfin-finder-mfh:   [22/142] Driving times + details for: 115 W Sqantum #607, Quincy, MA 02171
+2026-04-15 13:45:53,920 [WARNING] src.scraper: 403 fetching details for property 9025296 (attempt 1)
+2026-04-15 13:46:03,739 [WARNING] src.scraper: 403 fetching details for property 9025296 (attempt 2)
+2026-04-15 13:46:08,882 [WARNING] src.scraper: 403 fetching details for property 9025296 (attempt 3)
+2026-04-15 13:46:23,216 [INFO] redfin-finder-mfh:   [23/142] Driving times + details for: 115 W Squantum St #203, Quincy, MA 02171
+2026-04-15 13:46:24,964 [WARNING] src.scraper: 403 fetching details for property 11722276 (attempt 1)
+2026-04-15 13:46:39,466 [WARNING] src.scraper: 403 fetching details for property 11722276 (attempt 2)
+2026-04-15 13:46:48,788 [WARNING] src.scraper: 403 fetching details for property 11722276 (attempt 3)
+2026-04-15 13:46:58,075 [INFO] redfin-finder-mfh:   [24/142] Driving times + details for: 212-A Quincy Shore Dr, Quincy, MA 02171
+2026-04-15 13:46:59,875 [WARNING] src.scraper: 403 fetching details for property 9009303 (attempt 1)
+2026-04-15 13:47:14,611 [WARNING] src.scraper: 403 fetching details for property 9009303 (attempt 2)
+2026-04-15 13:47:22,174 [WARNING] src.scraper: 403 fetching details for property 9009303 (attempt 3)
+2026-04-15 13:47:30,328 [INFO] redfin-finder-mfh:   [25/142] Driving times + details for: 28 Hibiscus Ave, Waltham, MA 02451
+2026-04-15 13:47:32,030 [WARNING] src.scraper: 403 fetching details for property 11802693 (attempt 1)
+2026-04-15 13:47:43,142 [WARNING] src.scraper: 403 fetching details for property 11802693 (attempt 2)
+2026-04-15 13:47:57,247 [WARNING] src.scraper: 403 fetching details for property 11802693 (attempt 3)
+2026-04-15 13:48:02,422 [INFO] redfin-finder-mfh:   [26/142] Driving times + details for: 25 Wellington St #1, Waltham, MA 02451
+2026-04-15 13:48:04,185 [WARNING] src.scraper: 403 fetching details for property 11823207 (attempt 1)
+2026-04-15 13:48:16,656 [WARNING] src.scraper: 403 fetching details for property 11823207 (attempt 2)
+2026-04-15 13:48:23,809 [WARNING] src.scraper: 403 fetching details for property 11823207 (attempt 3)
+2026-04-15 13:48:37,773 [INFO] redfin-finder-mfh:   [27/142] Driving times + details for: 26 Friend St, Waltham, MA 02453
+2026-04-15 13:48:39,609 [WARNING] src.scraper: 403 fetching details for property 11818417 (attempt 1)
+2026-04-15 13:48:47,266 [WARNING] src.scraper: 403 fetching details for property 11818417 (attempt 2)
+2026-04-15 13:48:52,350 [WARNING] src.scraper: 403 fetching details for property 11818417 (attempt 3)
+2026-04-15 13:49:03,962 [INFO] redfin-finder-mfh:   [28/142] Driving times + details for: 231 Lowell St #2, Waltham, MA 02453
+2026-04-15 13:49:05,646 [WARNING] src.scraper: 403 fetching details for property 11822485 (attempt 1)
+2026-04-15 13:49:13,339 [WARNING] src.scraper: 403 fetching details for property 11822485 (attempt 2)
+2026-04-15 13:49:19,809 [WARNING] src.scraper: 403 fetching details for property 11822485 (attempt 3)
+2026-04-15 13:49:27,770 [INFO] redfin-finder-mfh:   [29/142] Driving times + details for: 17 Robbins St Unit 2-2, Waltham, MA 02453
+2026-04-15 13:49:29,568 [WARNING] src.scraper: 403 fetching details for property 18960411 (attempt 1)
+2026-04-15 13:49:43,457 [WARNING] src.scraper: 403 fetching details for property 18960411 (attempt 2)
+2026-04-15 13:49:51,740 [WARNING] src.scraper: 403 fetching details for property 18960411 (attempt 3)
+2026-04-15 13:49:57,259 [INFO] redfin-finder-mfh:   [30/142] Driving times + details for: 10 Washington Ave #3, Waltham, MA 02453
+2026-04-15 13:49:58,997 [WARNING] src.scraper: 403 fetching details for property 69378071 (attempt 1)
+2026-04-15 13:50:12,509 [WARNING] src.scraper: 403 fetching details for property 69378071 (attempt 2)
+2026-04-15 13:50:27,228 [WARNING] src.scraper: 403 fetching details for property 69378071 (attempt 3)
+2026-04-15 13:50:34,408 [INFO] redfin-finder-mfh:   [31/142] Driving times + details for: 31 Warren St Unit B1, Waltham, MA 02453
+2026-04-15 13:50:36,132 [WARNING] src.scraper: 403 fetching details for property 11815449 (attempt 1)
+2026-04-15 13:50:46,731 [WARNING] src.scraper: 403 fetching details for property 11815449 (attempt 2)
+2026-04-15 13:50:57,540 [WARNING] src.scraper: 403 fetching details for property 11815449 (attempt 3)
+2026-04-15 13:51:10,521 [INFO] redfin-finder-mfh:   [32/142] Driving times + details for: 10 Naviens Ln #1, Waltham, MA 02453
+2026-04-15 13:51:12,279 [WARNING] src.scraper: 403 fetching details for property 76478882 (attempt 1)
+2026-04-15 13:51:23,107 [WARNING] src.scraper: 403 fetching details for property 76478882 (attempt 2)
+2026-04-15 13:51:31,880 [WARNING] src.scraper: 403 fetching details for property 76478882 (attempt 3)
+2026-04-15 13:51:41,341 [INFO] redfin-finder-mfh:   [33/142] Driving times + details for: 549 Centre St #2, Newton, MA 02458
+2026-04-15 13:51:43,215 [WARNING] src.scraper: 403 fetching details for property 11411108 (attempt 1)
+2026-04-15 13:51:56,314 [WARNING] src.scraper: 403 fetching details for property 11411108 (attempt 2)
+2026-04-15 13:52:08,490 [WARNING] src.scraper: 403 fetching details for property 11411108 (attempt 3)
+2026-04-15 13:52:22,749 [INFO] redfin-finder-mfh:   [34/142] Driving times + details for: 34 Channing St #2, Newton, MA 02458
+2026-04-15 13:52:24,617 [WARNING] src.scraper: 403 fetching details for property 196688205 (attempt 1)
+2026-04-15 13:52:33,448 [WARNING] src.scraper: 403 fetching details for property 196688205 (attempt 2)
+2026-04-15 13:52:45,607 [WARNING] src.scraper: 403 fetching details for property 196688205 (attempt 3)
+2026-04-15 13:52:50,622 [INFO] redfin-finder-mfh:   [35/142] Driving times + details for: 76 Taft Ave #1, West Newton, MA 02465
+2026-04-15 13:52:52,353 [WARNING] src.scraper: 403 fetching details for property 11433253 (attempt 1)
+2026-04-15 13:52:59,180 [WARNING] src.scraper: 403 fetching details for property 11433253 (attempt 2)
+2026-04-15 13:53:09,850 [WARNING] src.scraper: 403 fetching details for property 11433253 (attempt 3)
+2026-04-15 13:53:18,857 [INFO] redfin-finder-mfh:   [36/142] Driving times + details for: 64 Bryon Rd #1, Chestnut Hill, MA 02467
+2026-04-15 13:53:20,526 [WARNING] src.scraper: 403 fetching details for property 9204182 (attempt 1)
+2026-04-15 13:53:32,032 [WARNING] src.scraper: 403 fetching details for property 9204182 (attempt 2)
+2026-04-15 13:53:41,741 [WARNING] src.scraper: 403 fetching details for property 9204182 (attempt 3)
+2026-04-15 13:53:51,685 [INFO] redfin-finder-mfh:   [37/142] Driving times + details for: 28 Westgate Rd #3, Chestnut Hill, MA 02467
+2026-04-15 13:53:53,677 [WARNING] src.scraper: 403 fetching details for property 9204984 (attempt 1)
+2026-04-15 13:54:08,110 [WARNING] src.scraper: 403 fetching details for property 9204984 (attempt 2)
+2026-04-15 13:54:14,603 [WARNING] src.scraper: 403 fetching details for property 9204984 (attempt 3)
+2026-04-15 13:54:24,401 [INFO] redfin-finder-mfh:   [38/142] Driving times + details for: 42 Bryon Rd #6, Chestnut Hill, MA 02132
+2026-04-15 13:54:26,146 [WARNING] src.scraper: 403 fetching details for property 9204495 (attempt 1)
+2026-04-15 13:54:38,359 [WARNING] src.scraper: 403 fetching details for property 9204495 (attempt 2)
+2026-04-15 13:54:46,311 [WARNING] src.scraper: 403 fetching details for property 9204495 (attempt 3)
+2026-04-15 13:54:54,252 [INFO] redfin-finder-mfh:   [39/142] Driving times + details for: 1 Clayton St #1, Watertown, MA 02472
+2026-04-15 13:54:56,068 [WARNING] src.scraper: 403 fetching details for property 113239262 (attempt 1)
+2026-04-15 13:55:06,704 [WARNING] src.scraper: 403 fetching details for property 113239262 (attempt 2)
+2026-04-15 13:55:14,146 [WARNING] src.scraper: 403 fetching details for property 113239262 (attempt 3)
+2026-04-15 13:55:19,162 [INFO] redfin-finder-mfh:   [40/142] Driving times + details for: 77 Forest St, Watertown, MA 02472
+2026-04-15 13:55:21,030 [WARNING] src.scraper: 403 fetching details for property 195635313 (attempt 1)
+2026-04-15 13:55:28,101 [WARNING] src.scraper: 403 fetching details for property 195635313 (attempt 2)
+2026-04-15 13:55:38,605 [WARNING] src.scraper: 403 fetching details for property 195635313 (attempt 3)
+2026-04-15 13:55:53,204 [INFO] redfin-finder-mfh:   [41/142] Driving times + details for: 56 Ralph St #3, Watertown, MA 02472
+2026-04-15 13:55:55,018 [WARNING] src.scraper: 403 fetching details for property 57314411 (attempt 1)
+2026-04-15 13:56:08,653 [WARNING] src.scraper: 403 fetching details for property 57314411 (attempt 2)
+2026-04-15 13:56:20,530 [WARNING] src.scraper: 403 fetching details for property 57314411 (attempt 3)
+2026-04-15 13:56:32,158 [INFO] redfin-finder-mfh:   [42/142] Driving times + details for: 32 Whites Ave Unit D65, Watertown, MA 02472
+2026-04-15 13:56:33,836 [WARNING] src.scraper: 403 fetching details for property 11705029 (attempt 1)
+2026-04-15 13:56:48,555 [WARNING] src.scraper: 403 fetching details for property 11705029 (attempt 2)
+2026-04-15 13:57:01,903 [WARNING] src.scraper: 403 fetching details for property 11705029 (attempt 3)
+2026-04-15 13:57:11,602 [INFO] redfin-finder-mfh:   [43/142] Driving times + details for: 35 Glencoe St #43, Brighton, MA 02134
+2026-04-15 13:57:13,327 [WARNING] src.scraper: 403 fetching details for property 9015948 (attempt 1)
+2026-04-15 13:57:26,060 [WARNING] src.scraper: 403 fetching details for property 9015948 (attempt 2)
+2026-04-15 13:57:34,040 [WARNING] src.scraper: 403 fetching details for property 9015948 (attempt 3)
+2026-04-15 13:57:39,558 [INFO] redfin-finder-mfh:   [44/142] Driving times + details for: 186 Lexington St #8, Watertown, MA 02472
+2026-04-15 13:57:41,369 [WARNING] src.scraper: 403 fetching details for property 11690422 (attempt 1)
+2026-04-15 13:57:56,212 [WARNING] src.scraper: 403 fetching details for property 11690422 (attempt 2)
+2026-04-15 13:58:04,673 [WARNING] src.scraper: 403 fetching details for property 11690422 (attempt 3)
+2026-04-15 13:58:17,743 [INFO] redfin-finder-mfh:   [45/142] Driving times + details for: 194 Lexington St #1, Watertown, MA 02472
+2026-04-15 13:58:19,392 [WARNING] src.scraper: 403 fetching details for property 11690433 (attempt 1)
+2026-04-15 13:58:29,510 [WARNING] src.scraper: 403 fetching details for property 11690433 (attempt 2)
+2026-04-15 13:58:40,000 [WARNING] src.scraper: 403 fetching details for property 11690433 (attempt 3)
+2026-04-15 13:58:53,434 [INFO] redfin-finder-mfh:   [46/142] Driving times + details for: 35 Homer Ave #7, Cambridge, MA 02138
+2026-04-15 13:58:55,110 [WARNING] src.scraper: 403 fetching details for property 12442078 (attempt 1)
+2026-04-15 13:59:01,398 [WARNING] src.scraper: 403 fetching details for property 12442078 (attempt 2)
+2026-04-15 13:59:10,021 [WARNING] src.scraper: 403 fetching details for property 12442078 (attempt 3)
+2026-04-15 13:59:17,874 [INFO] redfin-finder-mfh:   [47/142] Driving times + details for: 4 Repton Cir #4105, Watertown, MA 02472
+2026-04-15 13:59:19,490 [WARNING] src.scraper: 403 fetching details for property 18977070 (attempt 1)
+2026-04-15 13:59:31,508 [WARNING] src.scraper: 403 fetching details for property 18977070 (attempt 2)
+2026-04-15 13:59:44,109 [WARNING] src.scraper: 403 fetching details for property 18977070 (attempt 3)
+2026-04-15 13:59:54,517 [INFO] redfin-finder-mfh:   [48/142] Driving times + details for: , Boston, MA 02135
+2026-04-15 13:59:56,133 [WARNING] src.scraper: 403 fetching details for property 9013888 (attempt 1)
+2026-04-15 14:00:06,480 [WARNING] src.scraper: 403 fetching details for property 9013888 (attempt 2)
+2026-04-15 14:00:17,778 [WARNING] src.scraper: 403 fetching details for property 9013888 (attempt 3)
+2026-04-15 14:00:28,390 [INFO] redfin-finder-mfh:   [49/142] Driving times + details for: 1758 Commonwealth Ave #12, Brighton, MA 02135
+2026-04-15 14:00:30,007 [WARNING] src.scraper: 403 fetching details for property 9022903 (attempt 1)
+2026-04-15 14:00:38,354 [WARNING] src.scraper: 403 fetching details for property 9022903 (attempt 2)
+2026-04-15 14:00:51,395 [WARNING] src.scraper: 403 fetching details for property 9022903 (attempt 3)
+2026-04-15 14:01:00,787 [INFO] redfin-finder-mfh:   [50/142] Driving times + details for: 36 Bellvista Rd #36, Boston, MA 02135
+2026-04-15 14:01:02,428 [WARNING] src.scraper: 403 fetching details for property 201241136 (attempt 1)
+2026-04-15 14:01:12,370 [WARNING] src.scraper: 403 fetching details for property 201241136 (attempt 2)
+2026-04-15 14:01:22,689 [WARNING] src.scraper: 403 fetching details for property 201241136 (attempt 3)
+2026-04-15 14:01:32,610 [INFO] redfin-finder-mfh:   [51/142] Driving times + details for: 140 Kenrick #8, Brighton, MA 02135
+2026-04-15 14:01:34,279 [WARNING] src.scraper: 403 fetching details for property 9043024 (attempt 1)
+2026-04-15 14:01:40,777 [WARNING] src.scraper: 403 fetching details for property 9043024 (attempt 2)
+2026-04-15 14:01:49,152 [WARNING] src.scraper: 403 fetching details for property 9043024 (attempt 3)
+2026-04-15 14:01:59,056 [INFO] redfin-finder-mfh:   [52/142] Driving times + details for: 1568 Commonwealth Ave #12, Brighton, MA 02135
+2026-04-15 14:02:00,679 [WARNING] src.scraper: 403 fetching details for property 9017105 (attempt 1)
+2026-04-15 14:02:07,897 [WARNING] src.scraper: 403 fetching details for property 9017105 (attempt 2)
+2026-04-15 14:02:13,914 [WARNING] src.scraper: 403 fetching details for property 9017105 (attempt 3)
+2026-04-15 14:02:28,139 [INFO] redfin-finder-mfh:   [53/142] Driving times + details for: 189 Chestnut Hill Ave #14, Brighton, MA 02135
+2026-04-15 14:02:29,969 [WARNING] src.scraper: 403 fetching details for property 9036897 (attempt 1)
+2026-04-15 14:02:35,188 [WARNING] src.scraper: 403 fetching details for property 9036897 (attempt 2)
+2026-04-15 14:02:50,092 [WARNING] src.scraper: 403 fetching details for property 9036897 (attempt 3)
+2026-04-15 14:03:01,642 [INFO] redfin-finder-mfh:   [54/142] Driving times + details for: 26 Waverly St #202, Brighton, MA 02135
+2026-04-15 14:03:03,313 [WARNING] src.scraper: 403 fetching details for property 9010573 (attempt 1)
+2026-04-15 14:03:09,703 [WARNING] src.scraper: 403 fetching details for property 9010573 (attempt 2)
+2026-04-15 14:03:20,526 [WARNING] src.scraper: 403 fetching details for property 9010573 (attempt 3)
+2026-04-15 14:03:29,650 [INFO] redfin-finder-mfh:   [55/142] Driving times + details for: 1870 Commonwealth Ave #1, Brighton, MA 02135
+2026-04-15 14:03:31,300 [WARNING] src.scraper: 403 fetching details for property 9027994 (attempt 1)
+2026-04-15 14:03:39,918 [WARNING] src.scraper: 403 fetching details for property 9027994 (attempt 2)
+2026-04-15 14:03:47,733 [WARNING] src.scraper: 403 fetching details for property 9027994 (attempt 3)
+2026-04-15 14:03:52,965 [INFO] redfin-finder-mfh:   [56/142] Driving times + details for: 1641 Commonwealth Ave #16, Brighton, MA 02135
+2026-04-15 14:03:54,556 [WARNING] src.scraper: 403 fetching details for property 9002891 (attempt 1)
+2026-04-15 14:04:03,325 [WARNING] src.scraper: 403 fetching details for property 9002891 (attempt 2)
+2026-04-15 14:04:08,977 [WARNING] src.scraper: 403 fetching details for property 9002891 (attempt 3)
+2026-04-15 14:04:23,700 [INFO] redfin-finder-mfh:   [57/142] Driving times + details for: 1496 Commonwealth Ave Unit 9E, Brighton, MA 02135
+2026-04-15 14:04:25,302 [WARNING] src.scraper: 403 fetching details for property 201193887 (attempt 1)
+2026-04-15 14:04:39,594 [WARNING] src.scraper: 403 fetching details for property 201193887 (attempt 2)
+2026-04-15 14:04:49,846 [WARNING] src.scraper: 403 fetching details for property 201193887 (attempt 3)
+2026-04-15 14:05:01,768 [INFO] redfin-finder-mfh:   [58/142] Driving times + details for: 370 Chestnut Hl #3, Brighton, MA 02135
+2026-04-15 14:05:03,468 [WARNING] src.scraper: 403 fetching details for property 39912751 (attempt 1)
+2026-04-15 14:05:08,667 [WARNING] src.scraper: 403 fetching details for property 39912751 (attempt 2)
+2026-04-15 14:05:16,765 [WARNING] src.scraper: 403 fetching details for property 39912751 (attempt 3)
+2026-04-15 14:05:30,205 [INFO] redfin-finder-mfh:   [59/142] Driving times + details for: 70 Strathmore Rd Unit 10A, Brighton, MA 02135
+2026-04-15 14:05:31,805 [WARNING] src.scraper: 403 fetching details for property 9028575 (attempt 1)
+2026-04-15 14:05:44,471 [WARNING] src.scraper: 403 fetching details for property 9028575 (attempt 2)
+2026-04-15 14:05:51,112 [WARNING] src.scraper: 403 fetching details for property 9028575 (attempt 3)
+2026-04-15 14:06:00,270 [INFO] redfin-finder-mfh:   [60/142] Driving times + details for: 26 Waverly St #410, Brighton, MA 02135
+2026-04-15 14:06:01,909 [WARNING] src.scraper: 403 fetching details for property 9010706 (attempt 1)
+2026-04-15 14:06:08,697 [WARNING] src.scraper: 403 fetching details for property 9010706 (attempt 2)
+2026-04-15 14:06:21,520 [WARNING] src.scraper: 403 fetching details for property 9010706 (attempt 3)
+2026-04-15 14:06:29,897 [INFO] redfin-finder-mfh:   [61/142] Driving times + details for: 110 Lanark Rd #10, Brighton, MA 02135
+2026-04-15 14:06:31,521 [WARNING] src.scraper: 403 fetching details for property 9022452 (attempt 1)
+2026-04-15 14:06:45,962 [WARNING] src.scraper: 403 fetching details for property 9022452 (attempt 2)
+2026-04-15 14:06:56,031 [WARNING] src.scraper: 403 fetching details for property 9022452 (attempt 3)
+2026-04-15 14:07:10,696 [INFO] redfin-finder-mfh:   [62/142] Driving times + details for: 48 Strathmore Rd #26, Brighton, MA 02135
+2026-04-15 14:07:12,343 [WARNING] src.scraper: 403 fetching details for property 9028847 (attempt 1)
+2026-04-15 14:07:22,513 [WARNING] src.scraper: 403 fetching details for property 9028847 (attempt 2)
+2026-04-15 14:07:30,400 [WARNING] src.scraper: 403 fetching details for property 9028847 (attempt 3)
+2026-04-15 14:07:41,289 [INFO] redfin-finder-mfh:   [63/142] Driving times + details for: 12-14 Shannon St #3, Brighton, MA 02135
+2026-04-15 14:07:42,931 [WARNING] src.scraper: 403 fetching details for property 11838033 (attempt 1)
+2026-04-15 14:07:52,715 [WARNING] src.scraper: 403 fetching details for property 11838033 (attempt 2)
+2026-04-15 14:08:00,445 [WARNING] src.scraper: 403 fetching details for property 11838033 (attempt 3)
+2026-04-15 14:08:09,504 [INFO] redfin-finder-mfh:   [64/142] Driving times + details for: 1666 Commonwealth Ave Unit 66-24, Brighton, MA 02135
+2026-04-15 14:08:11,098 [WARNING] src.scraper: 403 fetching details for property 200890931 (attempt 1)
+2026-04-15 14:08:23,827 [WARNING] src.scraper: 403 fetching details for property 200890931 (attempt 2)
+2026-04-15 14:08:38,263 [WARNING] src.scraper: 403 fetching details for property 200890931 (attempt 3)
+2026-04-15 14:08:44,420 [INFO] redfin-finder-mfh:   [65/142] Driving times + details for: 28 Sidlaw Rd #2, Brighton, MA 02135
+2026-04-15 14:08:46,062 [WARNING] src.scraper: 403 fetching details for property 9007059 (attempt 1)
+2026-04-15 14:08:51,258 [WARNING] src.scraper: 403 fetching details for property 9007059 (attempt 2)
+2026-04-15 14:08:56,534 [WARNING] src.scraper: 403 fetching details for property 9007059 (attempt 3)
+2026-04-15 14:09:03,151 [INFO] redfin-finder-mfh:   [66/142] Driving times + details for: 69A Strathmore St Unit 69A, Boston, MA 02135
+2026-04-15 14:09:04,701 [WARNING] src.scraper: 403 fetching details for property 200893159 (attempt 1)
+2026-04-15 14:09:17,677 [WARNING] src.scraper: 403 fetching details for property 200893159 (attempt 2)
+2026-04-15 14:09:26,394 [WARNING] src.scraper: 403 fetching details for property 200893159 (attempt 3)
+2026-04-15 14:09:36,196 [INFO] redfin-finder-mfh:   [67/142] Driving times + details for: 114 Strathmore Rd #404, Brighton, MA 02135
+2026-04-15 14:09:37,749 [WARNING] src.scraper: 403 fetching details for property 9026666 (attempt 1)
+2026-04-15 14:09:49,753 [WARNING] src.scraper: 403 fetching details for property 9026666 (attempt 2)
+2026-04-15 14:10:04,026 [WARNING] src.scraper: 403 fetching details for property 9026666 (attempt 3)
+2026-04-15 14:10:11,474 [INFO] redfin-finder-mfh:   [68/142] Driving times + details for: 70 Leo M Birmingham Pkwy #416, Boston, MA 02135
+2026-04-15 14:10:13,035 [WARNING] src.scraper: 403 fetching details for property 178944372 (attempt 1)
+2026-04-15 14:10:27,164 [WARNING] src.scraper: 403 fetching details for property 178944372 (attempt 2)
+2026-04-15 14:10:37,249 [WARNING] src.scraper: 403 fetching details for property 178944372 (attempt 3)
+2026-04-15 14:10:51,134 [INFO] redfin-finder-mfh:   [69/142] Driving times + details for: 1868 Commonwealth Ave #1, Brighton, MA 02135
+2026-04-15 14:10:52,760 [WARNING] src.scraper: 403 fetching details for property 9028075 (attempt 1)
+2026-04-15 14:10:58,962 [WARNING] src.scraper: 403 fetching details for property 9028075 (attempt 2)
+2026-04-15 14:11:10,778 [WARNING] src.scraper: 403 fetching details for property 9028075 (attempt 3)
+2026-04-15 14:11:15,899 [INFO] redfin-finder-mfh:   [70/142] Driving times + details for: 32 Sidlaw #6, Brighton, MA 02135
+2026-04-15 14:11:17,546 [WARNING] src.scraper: 403 fetching details for property 9006968 (attempt 1)
+2026-04-15 14:11:27,788 [WARNING] src.scraper: 403 fetching details for property 9006968 (attempt 2)
+2026-04-15 14:11:40,479 [WARNING] src.scraper: 403 fetching details for property 9006968 (attempt 3)
+2026-04-15 14:11:51,169 [INFO] redfin-finder-mfh:   [71/142] Driving times + details for: 1945 Commonwealth Ave #4, Brighton, MA 02135
+2026-04-15 14:11:52,836 [WARNING] src.scraper: 403 fetching details for property 9242382 (attempt 1)
+2026-04-15 14:12:01,520 [WARNING] src.scraper: 403 fetching details for property 9242382 (attempt 2)
+2026-04-15 14:12:13,387 [WARNING] src.scraper: 403 fetching details for property 9242382 (attempt 3)
+2026-04-15 14:12:20,321 [INFO] redfin-finder-mfh:   [72/142] Driving times + details for: 26 Chiswick Rd #6, Brighton, MA 02135
+2026-04-15 14:12:21,919 [WARNING] src.scraper: 403 fetching details for property 9026723 (attempt 1)
+2026-04-15 14:12:34,949 [WARNING] src.scraper: 403 fetching details for property 9026723 (attempt 2)
+2026-04-15 14:12:46,293 [WARNING] src.scraper: 403 fetching details for property 9026723 (attempt 3)
+2026-04-15 14:12:59,329 [INFO] redfin-finder-mfh:   [73/142] Driving times + details for: 191 Washington St #317, Boston, MA 02135
+2026-04-15 14:13:00,977 [WARNING] src.scraper: 403 fetching details for property 176134081 (attempt 1)
+2026-04-15 14:13:15,290 [WARNING] src.scraper: 403 fetching details for property 176134081 (attempt 2)
+2026-04-15 14:13:21,691 [WARNING] src.scraper: 403 fetching details for property 176134081 (attempt 3)
+2026-04-15 14:13:32,151 [INFO] redfin-finder-mfh:   [74/142] Driving times + details for: 7 Lothian Rd Unit B, Brighton, MA 02135
+2026-04-15 14:13:33,789 [WARNING] src.scraper: 403 fetching details for property 9025402 (attempt 1)
+2026-04-15 14:13:38,969 [WARNING] src.scraper: 403 fetching details for property 9025402 (attempt 2)
+2026-04-15 14:13:50,695 [WARNING] src.scraper: 403 fetching details for property 9025402 (attempt 3)
+2026-04-15 14:14:01,137 [INFO] redfin-finder-mfh:   [75/142] Driving times + details for: 5 Braemore Rd #10, Brighton, MA 02135
+2026-04-15 14:14:02,676 [WARNING] src.scraper: 403 fetching details for property 9308549 (attempt 1)
+2026-04-15 14:14:10,286 [WARNING] src.scraper: 403 fetching details for property 9308549 (attempt 2)
+2026-04-15 14:14:19,832 [WARNING] src.scraper: 403 fetching details for property 9308549 (attempt 3)
+2026-04-15 14:14:31,143 [INFO] redfin-finder-mfh:   [76/142] Driving times + details for: 198 Allston St #3, Brighton, MA 02134
+2026-04-15 14:14:32,713 [WARNING] src.scraper: 403 fetching details for property 9013031 (attempt 1)
+2026-04-15 14:14:43,006 [WARNING] src.scraper: 403 fetching details for property 9013031 (attempt 2)
+2026-04-15 14:14:55,257 [WARNING] src.scraper: 403 fetching details for property 9013031 (attempt 3)
+2026-04-15 14:15:06,206 [INFO] redfin-finder-mfh:   [77/142] Driving times + details for: 15 Colliston Rd #6, Brighton, MA 02135
+2026-04-15 14:15:07,861 [WARNING] src.scraper: 403 fetching details for property 9004520 (attempt 1)
+2026-04-15 14:15:18,071 [WARNING] src.scraper: 403 fetching details for property 9004520 (attempt 2)
+2026-04-15 14:15:30,833 [WARNING] src.scraper: 403 fetching details for property 9004520 (attempt 3)
+2026-04-15 14:15:44,006 [INFO] redfin-finder-mfh:   [78/142] Driving times + details for: 191 Washington St, Boston, MA 02135
+2026-04-15 14:15:45,642 [WARNING] src.scraper: 403 fetching details for property 184088757 (attempt 1)
+2026-04-15 14:15:55,811 [WARNING] src.scraper: 403 fetching details for property 184088757 (attempt 2)
+2026-04-15 14:16:08,368 [WARNING] src.scraper: 403 fetching details for property 184088757 (attempt 3)
+2026-04-15 14:16:15,425 [INFO] redfin-finder-mfh:   [79/142] Driving times + details for: 1691 Commonwealth Ave #31, Brighton, MA 02135
+2026-04-15 14:16:17,077 [WARNING] src.scraper: 403 fetching details for property 9020583 (attempt 1)
+2026-04-15 14:16:27,123 [WARNING] src.scraper: 403 fetching details for property 9020583 (attempt 2)
+2026-04-15 14:16:33,783 [WARNING] src.scraper: 403 fetching details for property 9020583 (attempt 3)
+2026-04-15 14:16:41,135 [INFO] redfin-finder-mfh:   [80/142] Driving times + details for: 533 Cambridge St #308, Allston, MA 02134
+2026-04-15 14:16:42,796 [WARNING] src.scraper: 403 fetching details for property 12469714 (attempt 1)
+2026-04-15 14:16:54,650 [WARNING] src.scraper: 403 fetching details for property 12469714 (attempt 2)
+2026-04-15 14:17:03,967 [WARNING] src.scraper: 403 fetching details for property 12469714 (attempt 3)
+2026-04-15 14:17:14,636 [INFO] redfin-finder-mfh:   [81/142] Driving times + details for: 10 Scottfield Rd #34, Allston, MA 02134
+2026-04-15 14:17:16,260 [WARNING] src.scraper: 403 fetching details for property 9000321 (attempt 1)
+2026-04-15 14:17:27,027 [WARNING] src.scraper: 403 fetching details for property 9000321 (attempt 2)
+2026-04-15 14:17:34,770 [WARNING] src.scraper: 403 fetching details for property 9000321 (attempt 3)
+2026-04-15 14:17:46,319 [INFO] redfin-finder-mfh:   [82/142] Driving times + details for: 17 Radcliffe Rd #10, Allston, MA 02134
+2026-04-15 14:17:47,950 [WARNING] src.scraper: 403 fetching details for property 11833006 (attempt 1)
+2026-04-15 14:17:54,854 [WARNING] src.scraper: 403 fetching details for property 11833006 (attempt 2)
+2026-04-15 14:18:06,533 [WARNING] src.scraper: 403 fetching details for property 11833006 (attempt 3)
+2026-04-15 14:18:13,464 [INFO] redfin-finder-mfh:   [83/142] Driving times + details for: 195 Cambridge St #3, Allston, MA 02134
+2026-04-15 14:18:15,107 [WARNING] src.scraper: 403 fetching details for property 18977374 (attempt 1)
+2026-04-15 14:18:27,895 [WARNING] src.scraper: 403 fetching details for property 18977374 (attempt 2)
+2026-04-15 14:18:40,699 [WARNING] src.scraper: 403 fetching details for property 18977374 (attempt 3)
+2026-04-15 14:18:46,210 [INFO] redfin-finder-mfh:   [84/142] Driving times + details for: 18 Glenville Ave Unit 3A, Allston, MA 02134
+2026-04-15 14:18:47,894 [WARNING] src.scraper: 403 fetching details for property 8995847 (attempt 1)
+2026-04-15 14:19:00,021 [WARNING] src.scraper: 403 fetching details for property 8995847 (attempt 2)
+2026-04-15 14:19:12,471 [WARNING] src.scraper: 403 fetching details for property 8995847 (attempt 3)
+2026-04-15 14:19:27,349 [INFO] redfin-finder-mfh:   [85/142] Driving times + details for: 239 Kelton St #11, Allston, MA 02134
+2026-04-15 14:19:28,939 [WARNING] src.scraper: 403 fetching details for property 9000947 (attempt 1)
+2026-04-15 14:19:40,051 [WARNING] src.scraper: 403 fetching details for property 9000947 (attempt 2)
+2026-04-15 14:19:52,565 [WARNING] src.scraper: 403 fetching details for property 9000947 (attempt 3)
+2026-04-15 14:20:03,949 [INFO] redfin-finder-mfh:   [86/142] Driving times + details for: 239 Kelton St #41, Allston, MA 02134
+2026-04-15 14:20:05,607 [WARNING] src.scraper: 403 fetching details for property 9001010 (attempt 1)
+2026-04-15 14:20:14,630 [WARNING] src.scraper: 403 fetching details for property 9001010 (attempt 2)
+2026-04-15 14:20:22,473 [WARNING] src.scraper: 403 fetching details for property 9001010 (attempt 3)
+2026-04-15 14:20:28,557 [INFO] redfin-finder-mfh:   [87/142] Driving times + details for: 1263 Commonwealth Ave #4, Allston, MA 02134
+2026-04-15 14:20:30,214 [WARNING] src.scraper: 403 fetching details for property 8995479 (attempt 1)
+2026-04-15 14:20:35,444 [WARNING] src.scraper: 403 fetching details for property 8995479 (attempt 2)
+2026-04-15 14:20:46,900 [WARNING] src.scraper: 403 fetching details for property 8995479 (attempt 3)
+2026-04-15 14:20:59,647 [INFO] redfin-finder-mfh:   [88/142] Driving times + details for: 10 Scottfield Rd #2, Allston, MA 02134
+2026-04-15 14:21:01,284 [WARNING] src.scraper: 403 fetching details for property 9000250 (attempt 1)
+2026-04-15 14:21:15,682 [WARNING] src.scraper: 403 fetching details for property 9000250 (attempt 2)
+2026-04-15 14:21:30,417 [WARNING] src.scraper: 403 fetching details for property 9000250 (attempt 3)
+2026-04-15 14:21:43,466 [INFO] redfin-finder-mfh:   [89/142] Driving times + details for: 45 Gordon St #4, Allston, MA 02134
+2026-04-15 14:21:45,099 [WARNING] src.scraper: 403 fetching details for property 8999903 (attempt 1)
+2026-04-15 14:21:52,296 [WARNING] src.scraper: 403 fetching details for property 8999903 (attempt 2)
+2026-04-15 14:21:57,845 [WARNING] src.scraper: 403 fetching details for property 8999903 (attempt 3)
+2026-04-15 14:22:03,859 [INFO] redfin-finder-mfh:   [90/142] Driving times + details for: 4 Franklin St #202, Boston, MA 02134
+2026-04-15 14:22:05,473 [WARNING] src.scraper: 403 fetching details for property 190592119 (attempt 1)
+2026-04-15 14:22:16,911 [WARNING] src.scraper: 403 fetching details for property 190592119 (attempt 2)
+2026-04-15 14:22:28,223 [WARNING] src.scraper: 403 fetching details for property 190592119 (attempt 3)
+2026-04-15 14:22:37,385 [INFO] redfin-finder-mfh:   [91/142] Driving times + details for: 5 Spofford Rd #17, Allston, MA 02134
+2026-04-15 14:22:39,006 [WARNING] src.scraper: 403 fetching details for property 8995633 (attempt 1)
+2026-04-15 14:22:47,348 [WARNING] src.scraper: 403 fetching details for property 8995633 (attempt 2)
+2026-04-15 14:22:58,146 [WARNING] src.scraper: 403 fetching details for property 8995633 (attempt 3)
+2026-04-15 14:23:12,230 [INFO] redfin-finder-mfh:   [92/142] Driving times + details for: 46 Highland Ave Unit 3B, Somerville, MA 02143
+2026-04-15 14:23:13,865 [WARNING] src.scraper: 403 fetching details for property 12404017 (attempt 1)
+2026-04-15 14:23:23,869 [WARNING] src.scraper: 403 fetching details for property 12404017 (attempt 2)
+2026-04-15 14:23:38,115 [WARNING] src.scraper: 403 fetching details for property 12404017 (attempt 3)
+2026-04-15 14:23:51,637 [INFO] redfin-finder-mfh:   [93/142] Driving times + details for: 367 Somerville Ave Unit G, Somerville, MA 02143
+2026-04-15 14:23:53,264 [WARNING] src.scraper: 403 fetching details for property 8751476 (attempt 1)
+2026-04-15 14:23:59,164 [WARNING] src.scraper: 403 fetching details for property 8751476 (attempt 2)
+2026-04-15 14:24:08,558 [WARNING] src.scraper: 403 fetching details for property 8751476 (attempt 3)
+2026-04-15 14:24:19,663 [INFO] redfin-finder-mfh:   [94/142] Driving times + details for: 17 Buckingham St #3, Somerville, MA 02143
+2026-04-15 14:24:21,308 [WARNING] src.scraper: 403 fetching details for property 200344678 (attempt 1)
+2026-04-15 14:24:26,656 [WARNING] src.scraper: 403 fetching details for property 200344678 (attempt 2)
+2026-04-15 14:24:37,362 [WARNING] src.scraper: 403 fetching details for property 200344678 (attempt 3)
+2026-04-15 14:24:52,037 [INFO] redfin-finder-mfh:   [95/142] Driving times + details for: 5 Waldo Ave Unit 2A, Somerville, MA 02143
+2026-04-15 14:24:53,654 [WARNING] src.scraper: 403 fetching details for property 8759932 (attempt 1)
+2026-04-15 14:25:05,648 [WARNING] src.scraper: 403 fetching details for property 8759932 (attempt 2)
+2026-04-15 14:25:19,829 [WARNING] src.scraper: 403 fetching details for property 8759932 (attempt 3)
+2026-04-15 14:25:33,931 [INFO] redfin-finder-mfh:   [96/142] Driving times + details for: 33 Newbury #1, Somerville, MA 02144
+2026-04-15 14:25:35,573 [WARNING] src.scraper: 403 fetching details for property 12389795 (attempt 1)
+2026-04-15 14:25:41,130 [WARNING] src.scraper: 403 fetching details for property 12389795 (attempt 2)
+2026-04-15 14:25:53,395 [WARNING] src.scraper: 403 fetching details for property 12389795 (attempt 3)
+2026-04-15 14:26:04,322 [INFO] redfin-finder-mfh:   [97/142] Driving times + details for: 60 Derby St Unit one, Somerville, MA 02145
+2026-04-15 14:26:05,942 [WARNING] src.scraper: 403 fetching details for property 200774557 (attempt 1)
+2026-04-15 14:26:15,177 [WARNING] src.scraper: 403 fetching details for property 200774557 (attempt 2)
+2026-04-15 14:26:22,239 [WARNING] src.scraper: 403 fetching details for property 200774557 (attempt 3)
+2026-04-15 14:26:31,063 [INFO] redfin-finder-mfh:   [98/142] Driving times + details for: 9 Clyde #9, Somerville, MA 02145
+2026-04-15 14:26:34,450 [WARNING] src.scraper: 403 fetching details for property 187141476 (attempt 1)
+2026-04-15 14:26:49,216 [WARNING] src.scraper: 403 fetching details for property 187141476 (attempt 2)
+2026-04-15 14:26:54,490 [WARNING] src.scraper: 403 fetching details for property 187141476 (attempt 3)
+2026-04-15 14:26:59,943 [INFO] redfin-finder-mfh:   [99/142] Driving times + details for: 102 Grant Unit B, Somerville, MA 02145
+2026-04-15 14:27:01,736 [WARNING] src.scraper: 403 fetching details for property 196668060 (attempt 1)
+2026-04-15 14:27:11,633 [WARNING] src.scraper: 403 fetching details for property 196668060 (attempt 2)
+2026-04-15 14:27:24,130 [WARNING] src.scraper: 403 fetching details for property 196668060 (attempt 3)
+2026-04-15 14:27:29,701 [INFO] redfin-finder-mfh:   [100/142] Driving times + details for: 84 Grant St #7, Somerville, MA 02145
+2026-04-15 14:27:31,331 [WARNING] src.scraper: 403 fetching details for property 11650236 (attempt 1)
+2026-04-15 14:27:37,064 [WARNING] src.scraper: 403 fetching details for property 11650236 (attempt 2)
+2026-04-15 14:27:51,226 [WARNING] src.scraper: 403 fetching details for property 11650236 (attempt 3)
+2026-04-15 14:28:05,944 [INFO] redfin-finder-mfh:   [101/142] Driving times + details for: 474 Broadway #25, Somerville, MA 02145
+2026-04-15 14:28:07,820 [WARNING] src.scraper: 403 fetching details for property 8709234 (attempt 1)
+2026-04-15 14:28:22,005 [WARNING] src.scraper: 403 fetching details for property 8709234 (attempt 2)
+2026-04-15 14:28:33,569 [WARNING] src.scraper: 403 fetching details for property 8709234 (attempt 3)
+2026-04-15 14:28:38,892 [INFO] redfin-finder-mfh:   [102/142] Driving times + details for: 25 Wheeler St #114, Cambridge, MA 02138
+2026-04-15 14:28:40,579 [WARNING] src.scraper: 403 fetching details for property 28439584 (attempt 1)
+2026-04-15 14:28:52,161 [WARNING] src.scraper: 403 fetching details for property 28439584 (attempt 2)
+2026-04-15 14:29:03,769 [WARNING] src.scraper: 403 fetching details for property 28439584 (attempt 3)
+2026-04-15 14:29:10,310 [INFO] redfin-finder-mfh:   [103/142] Driving times + details for: 29 Concord Ave #501, Cambridge, MA 02138
+2026-04-15 14:29:11,990 [WARNING] src.scraper: 403 fetching details for property 11586445 (attempt 1)
+2026-04-15 14:29:26,016 [WARNING] src.scraper: 403 fetching details for property 11586445 (attempt 2)
+2026-04-15 14:29:31,279 [WARNING] src.scraper: 403 fetching details for property 11586445 (attempt 3)
+2026-04-15 14:29:42,092 [INFO] redfin-finder-mfh:   [104/142] Driving times + details for: 6 Garden Ct #5, Cambridge, MA 02138
+2026-04-15 14:29:43,713 [WARNING] src.scraper: 403 fetching details for property 11600335 (attempt 1)
+2026-04-15 14:29:51,970 [WARNING] src.scraper: 403 fetching details for property 11600335 (attempt 2)
+2026-04-15 14:30:05,508 [WARNING] src.scraper: 403 fetching details for property 11600335 (attempt 3)
+2026-04-15 14:30:12,601 [INFO] redfin-finder-mfh:   [105/142] Driving times + details for: 395 Broadway Unit L3F, Cambridge, MA 02139
+2026-04-15 14:30:14,213 [WARNING] src.scraper: 403 fetching details for property 11563377 (attempt 1)
+2026-04-15 14:30:26,484 [WARNING] src.scraper: 403 fetching details for property 11563377 (attempt 2)
+2026-04-15 14:30:37,023 [WARNING] src.scraper: 403 fetching details for property 11563377 (attempt 3)
+2026-04-15 14:30:49,364 [INFO] redfin-finder-mfh:   [106/142] Driving times + details for: 269 Harvard St #19, Cambridge, MA 02139
+2026-04-15 14:30:50,956 [WARNING] src.scraper: 403 fetching details for property 11562614 (attempt 1)
+2026-04-15 14:30:59,220 [WARNING] src.scraper: 403 fetching details for property 11562614 (attempt 2)
+2026-04-15 14:31:09,991 [WARNING] src.scraper: 403 fetching details for property 11562614 (attempt 3)
+2026-04-15 14:31:23,764 [INFO] redfin-finder-mfh:   [107/142] Driving times + details for: 199 Prospect St Unit A1, Cambridge, MA 02139
+2026-04-15 14:31:25,408 [WARNING] src.scraper: 403 fetching details for property 110093910 (attempt 1)
+2026-04-15 14:31:30,935 [WARNING] src.scraper: 403 fetching details for property 110093910 (attempt 2)
+2026-04-15 14:31:41,225 [WARNING] src.scraper: 403 fetching details for property 110093910 (attempt 3)
+2026-04-15 14:31:54,180 [INFO] redfin-finder-mfh:   [108/142] Driving times + details for: 2353 Massachusetts Ave #44, Cambridge, MA 02140
+2026-04-15 14:31:55,804 [WARNING] src.scraper: 403 fetching details for property 11579692 (attempt 1)
+2026-04-15 14:32:08,956 [WARNING] src.scraper: 403 fetching details for property 11579692 (attempt 2)
+2026-04-15 14:32:21,494 [WARNING] src.scraper: 403 fetching details for property 11579692 (attempt 3)
+2026-04-15 14:32:36,087 [INFO] redfin-finder-mfh:   [109/142] Driving times + details for: 2353 Massachusetts Ave #93, Cambridge, MA 02140
+2026-04-15 14:32:37,726 [WARNING] src.scraper: 403 fetching details for property 11579819 (attempt 1)
+2026-04-15 14:32:43,914 [WARNING] src.scraper: 403 fetching details for property 11579819 (attempt 2)
+2026-04-15 14:32:57,318 [WARNING] src.scraper: 403 fetching details for property 11579819 (attempt 3)
+2026-04-15 14:33:09,688 [INFO] redfin-finder-mfh:   [110/142] Driving times + details for: 6 Washington Ave #11, Cambridge, MA 02140
+2026-04-15 14:33:11,342 [WARNING] src.scraper: 403 fetching details for property 11585376 (attempt 1)
+2026-04-15 14:33:19,050 [WARNING] src.scraper: 403 fetching details for property 11585376 (attempt 2)
+2026-04-15 14:33:33,757 [WARNING] src.scraper: 403 fetching details for property 11585376 (attempt 3)
+2026-04-15 14:33:45,989 [INFO] redfin-finder-mfh:   [111/142] Driving times + details for: 95 2nd St #3, Cambridge, MA 02141
+2026-04-15 14:33:47,587 [WARNING] src.scraper: 403 fetching details for property 22200369 (attempt 1)
+2026-04-15 14:33:54,348 [WARNING] src.scraper: 403 fetching details for property 22200369 (attempt 2)
+2026-04-15 14:34:07,127 [WARNING] src.scraper: 403 fetching details for property 22200369 (attempt 3)
+2026-04-15 14:34:20,117 [INFO] redfin-finder-mfh:   [112/142] Driving times + details for: 241 Hurley St #1, Cambridge, MA 02141
+2026-04-15 14:34:21,722 [WARNING] src.scraper: 403 fetching details for property 11603214 (attempt 1)
+2026-04-15 14:34:29,923 [WARNING] src.scraper: 403 fetching details for property 11603214 (attempt 2)
+2026-04-15 14:34:43,350 [WARNING] src.scraper: 403 fetching details for property 11603214 (attempt 3)
+2026-04-15 14:34:53,397 [INFO] redfin-finder-mfh:   [113/142] Driving times + details for: 22 Chestnut Pl #210, Brookline, MA 02445
+2026-04-15 14:34:54,974 [WARNING] src.scraper: 403 fetching details for property 11492260 (attempt 1)
+2026-04-15 14:35:09,603 [WARNING] src.scraper: 403 fetching details for property 11492260 (attempt 2)
+2026-04-15 14:35:21,114 [WARNING] src.scraper: 403 fetching details for property 11492260 (attempt 3)
+2026-04-15 14:35:31,112 [INFO] redfin-finder-mfh:   [114/142] Driving times + details for: 44 Washington St #508, Brookline, MA 02445
+2026-04-15 14:35:32,727 [WARNING] src.scraper: 403 fetching details for property 11485671 (attempt 1)
+2026-04-15 14:35:38,814 [WARNING] src.scraper: 403 fetching details for property 11485671 (attempt 2)
+2026-04-15 14:35:44,545 [WARNING] src.scraper: 403 fetching details for property 11485671 (attempt 3)
+2026-04-15 14:35:58,899 [INFO] redfin-finder-mfh:   [115/142] Driving times + details for: 75 Park St #8, Brookline, MA 02446
+2026-04-15 14:36:00,547 [WARNING] src.scraper: 403 fetching details for property 11467606 (attempt 1)
+2026-04-15 14:36:10,129 [WARNING] src.scraper: 403 fetching details for property 11467606 (attempt 2)
+2026-04-15 14:36:23,558 [WARNING] src.scraper: 403 fetching details for property 11467606 (attempt 3)
+2026-04-15 14:36:38,514 [INFO] redfin-finder-mfh:   [116/142] Driving times + details for: 131 Park Dr #2, Boston, MA 02215
+2026-04-15 14:36:40,151 [WARNING] src.scraper: 403 fetching details for property 9241298 (attempt 1)
+2026-04-15 14:36:50,411 [WARNING] src.scraper: 403 fetching details for property 9241298 (attempt 2)
+2026-04-15 14:37:00,778 [WARNING] src.scraper: 403 fetching details for property 9241298 (attempt 3)
+2026-04-15 14:37:14,076 [INFO] redfin-finder-mfh:   [117/142] Driving times + details for: 51 Park Dr #9, Boston, MA 02215
+2026-04-15 14:37:15,833 [WARNING] src.scraper: 403 fetching details for property 9273827 (attempt 1)
+2026-04-15 14:37:21,241 [WARNING] src.scraper: 403 fetching details for property 9273827 (attempt 2)
+2026-04-15 14:37:34,995 [WARNING] src.scraper: 403 fetching details for property 9273827 (attempt 3)
+2026-04-15 14:37:43,690 [INFO] redfin-finder-mfh:   [118/142] Driving times + details for: 922 Beacon St #24, Boston, MA 02215
+2026-04-15 14:37:45,343 [WARNING] src.scraper: 403 fetching details for property 9251146 (attempt 1)
+2026-04-15 14:37:58,286 [WARNING] src.scraper: 403 fetching details for property 9251146 (attempt 2)
+2026-04-15 14:38:08,123 [WARNING] src.scraper: 403 fetching details for property 9251146 (attempt 3)
+2026-04-15 14:38:17,188 [INFO] redfin-finder-mfh:   [119/142] Driving times + details for: 131 Park Dr #12, Boston, MA 02215
+2026-04-15 14:38:18,863 [WARNING] src.scraper: 403 fetching details for property 11735495 (attempt 1)
+2026-04-15 14:38:28,385 [WARNING] src.scraper: 403 fetching details for property 11735495 (attempt 2)
+2026-04-15 14:38:39,960 [WARNING] src.scraper: 403 fetching details for property 11735495 (attempt 3)
+2026-04-15 14:38:50,240 [INFO] redfin-finder-mfh:   [120/142] Driving times + details for: 66 Queensberry St #221, Boston, MA 02115
+2026-04-15 14:38:51,883 [WARNING] src.scraper: 403 fetching details for property 9241434 (attempt 1)
+2026-04-15 14:39:01,803 [WARNING] src.scraper: 403 fetching details for property 9241434 (attempt 2)
+2026-04-15 14:39:11,938 [WARNING] src.scraper: 403 fetching details for property 9241434 (attempt 3)
+2026-04-15 14:39:17,291 [INFO] redfin-finder-mfh:   [121/142] Driving times + details for: 51 Park Dr #25, Boston, MA 02215
+2026-04-15 14:39:18,953 [WARNING] src.scraper: 403 fetching details for property 9273877 (attempt 1)
+2026-04-15 14:39:27,445 [WARNING] src.scraper: 403 fetching details for property 9273877 (attempt 2)
+2026-04-15 14:39:36,669 [WARNING] src.scraper: 403 fetching details for property 9273877 (attempt 3)
+2026-04-15 14:39:42,555 [INFO] redfin-finder-mfh:   [122/142] Driving times + details for: 111 Jersey St #15, Boston, MA 02215
+2026-04-15 14:39:44,173 [WARNING] src.scraper: 403 fetching details for property 9317643 (attempt 1)
+2026-04-15 14:39:52,267 [WARNING] src.scraper: 403 fetching details for property 9317643 (attempt 2)
+2026-04-15 14:39:58,285 [WARNING] src.scraper: 403 fetching details for property 9317643 (attempt 3)
+2026-04-15 14:40:09,145 [INFO] redfin-finder-mfh:   [123/142] Driving times + details for: 618 Boston Ave Unit 4A, Medford, MA 02155
+2026-04-15 14:40:10,747 [WARNING] src.scraper: 403 fetching details for property 11798302 (attempt 1)
+2026-04-15 14:40:22,304 [WARNING] src.scraper: 403 fetching details for property 11798302 (attempt 2)
+2026-04-15 14:40:30,988 [WARNING] src.scraper: 403 fetching details for property 11798302 (attempt 3)
+2026-04-15 14:40:39,866 [INFO] redfin-finder-mfh:   [124/142] Driving times + details for: 314 Riverside Ave #408, Medford, MA 02155
+2026-04-15 14:40:41,496 [WARNING] src.scraper: 403 fetching details for property 11794508 (attempt 1)
+2026-04-15 14:40:56,157 [WARNING] src.scraper: 403 fetching details for property 11794508 (attempt 2)
+2026-04-15 14:41:02,705 [WARNING] src.scraper: 403 fetching details for property 11794508 (attempt 3)
+2026-04-15 14:41:17,300 [INFO] redfin-finder-mfh:   [125/142] Driving times + details for: 542 Riverside Ave, Medford, MA 02155
+2026-04-15 14:41:18,944 [WARNING] src.scraper: 403 fetching details for property 11801613 (attempt 1)
+2026-04-15 14:41:31,092 [WARNING] src.scraper: 403 fetching details for property 11801613 (attempt 2)
+2026-04-15 14:41:42,210 [WARNING] src.scraper: 403 fetching details for property 11801613 (attempt 3)
+2026-04-15 14:41:49,923 [INFO] redfin-finder-mfh:   [126/142] Driving times + details for: 297 Main St #3, Medford, MA 02155
+2026-04-15 14:41:51,580 [WARNING] src.scraper: 403 fetching details for property 11796231 (attempt 1)
+2026-04-15 14:42:05,526 [WARNING] src.scraper: 403 fetching details for property 11796231 (attempt 2)
+2026-04-15 14:42:13,335 [WARNING] src.scraper: 403 fetching details for property 11796231 (attempt 3)
+2026-04-15 14:42:20,940 [INFO] redfin-finder-mfh:   [127/142] Driving times + details for: 305 Riverside Ave #24, Medford, MA 02155
+2026-04-15 14:42:22,624 [WARNING] src.scraper: 403 fetching details for property 11794516 (attempt 1)
+2026-04-15 14:42:32,773 [WARNING] src.scraper: 403 fetching details for property 11794516 (attempt 2)
+2026-04-15 14:42:47,402 [WARNING] src.scraper: 403 fetching details for property 11794516 (attempt 3)
+2026-04-15 14:43:01,968 [INFO] redfin-finder-mfh:   [128/142] Driving times + details for: 314 Riverside Ave #305, Medford, MA 02155
+2026-04-15 14:43:03,613 [WARNING] src.scraper: 403 fetching details for property 11794499 (attempt 1)
+2026-04-15 14:43:18,075 [WARNING] src.scraper: 403 fetching details for property 11794499 (attempt 2)
+2026-04-15 14:43:29,906 [WARNING] src.scraper: 403 fetching details for property 11794499 (attempt 3)
+2026-04-15 14:43:42,330 [INFO] redfin-finder-mfh:   [129/142] Driving times + details for: 0 Gordon Rd, Medford, MA 02155
+2026-04-15 14:43:43,881 [WARNING] src.scraper: 403 fetching details for property 187063221 (attempt 1)
+2026-04-15 14:43:49,882 [WARNING] src.scraper: 403 fetching details for property 187063221 (attempt 2)
+2026-04-15 14:44:03,364 [WARNING] src.scraper: 403 fetching details for property 187063221 (attempt 3)
+2026-04-15 14:44:09,115 [INFO] redfin-finder-mfh:   [130/142] Driving times + details for: 12 Gaston St, Medford, MA 02155
+2026-04-15 14:44:10,678 [WARNING] src.scraper: 403 fetching details for property 11778344 (attempt 1)
+2026-04-15 14:44:16,988 [WARNING] src.scraper: 403 fetching details for property 11778344 (attempt 2)
+2026-04-15 14:44:29,716 [WARNING] src.scraper: 403 fetching details for property 11778344 (attempt 3)
+2026-04-15 14:44:42,322 [INFO] redfin-finder-mfh:   [131/142] Driving times + details for: 16 Arizon Ter #4, Arlington, MA 02474
+2026-04-15 14:44:43,868 [WARNING] src.scraper: 403 fetching details for property 8412362 (attempt 1)
+2026-04-15 14:44:53,817 [WARNING] src.scraper: 403 fetching details for property 8412362 (attempt 2)
+2026-04-15 14:45:01,166 [WARNING] src.scraper: 403 fetching details for property 8412362 (attempt 3)
+2026-04-15 14:45:06,389 [INFO] redfin-finder-mfh:   [132/142] Driving times + details for: 993 Massachusetts Ave #203, Arlington, MA 02476
+2026-04-15 14:45:07,942 [WARNING] src.scraper: 403 fetching details for property 11774605 (attempt 1)
+2026-04-15 14:45:22,327 [WARNING] src.scraper: 403 fetching details for property 11774605 (attempt 2)
+2026-04-15 14:45:36,951 [WARNING] src.scraper: 403 fetching details for property 11774605 (attempt 3)
+2026-04-15 14:45:44,228 [INFO] redfin-finder-mfh:   [133/142] Driving times + details for: 82 Medford St #3, Malden, MA 02148
+2026-04-15 14:45:45,791 [WARNING] src.scraper: 403 fetching details for property 11431491 (attempt 1)
+2026-04-15 14:45:55,675 [WARNING] src.scraper: 403 fetching details for property 11431491 (attempt 2)
+2026-04-15 14:46:07,086 [WARNING] src.scraper: 403 fetching details for property 11431491 (attempt 3)
+2026-04-15 14:46:18,951 [INFO] redfin-finder-mfh:   [134/142] Driving times + details for: 159 Madison St, Malden, MA 02148
+2026-04-15 14:46:20,595 [WARNING] src.scraper: 403 fetching details for property 11391337 (attempt 1)
+2026-04-15 14:46:27,458 [WARNING] src.scraper: 403 fetching details for property 11391337 (attempt 2)
+2026-04-15 14:46:41,968 [WARNING] src.scraper: 403 fetching details for property 11391337 (attempt 3)
+2026-04-15 14:46:51,758 [INFO] redfin-finder-mfh:   [135/142] Driving times + details for: 32 Newman Rd #1, Malden, MA 02148
+2026-04-15 14:46:53,410 [WARNING] src.scraper: 403 fetching details for property 11391853 (attempt 1)
+2026-04-15 14:47:06,602 [WARNING] src.scraper: 403 fetching details for property 11391853 (attempt 2)
+2026-04-15 14:47:21,083 [WARNING] src.scraper: 403 fetching details for property 11391853 (attempt 3)
+2026-04-15 14:47:29,002 [INFO] redfin-finder-mfh:   [136/142] Driving times + details for: 1 Glenwood St #5, Malden, MA 02148
+2026-04-15 14:47:30,608 [WARNING] src.scraper: 403 fetching details for property 11429024 (attempt 1)
+2026-04-15 14:47:39,486 [WARNING] src.scraper: 403 fetching details for property 11429024 (attempt 2)
+2026-04-15 14:47:52,851 [WARNING] src.scraper: 403 fetching details for property 11429024 (attempt 3)
+2026-04-15 14:48:06,229 [INFO] redfin-finder-mfh:   [137/142] Driving times + details for: 111 Devir #204, Malden, MA 02148
+2026-04-15 14:48:07,955 [WARNING] src.scraper: 403 fetching details for property 11388868 (attempt 1)
+2026-04-15 14:48:21,462 [WARNING] src.scraper: 403 fetching details for property 11388868 (attempt 2)
+2026-04-15 14:48:29,270 [WARNING] src.scraper: 403 fetching details for property 11388868 (attempt 3)
+2026-04-15 14:48:40,937 [INFO] redfin-finder-mfh:   [138/142] Driving times + details for: 82 Medford St #2, Malden, MA 02148
+2026-04-15 14:48:42,717 [WARNING] src.scraper: 403 fetching details for property 11431345 (attempt 1)
+2026-04-15 14:48:52,940 [WARNING] src.scraper: 403 fetching details for property 11431345 (attempt 2)
+2026-04-15 14:49:05,977 [WARNING] src.scraper: 403 fetching details for property 11431345 (attempt 3)
+2026-04-15 14:49:12,487 [INFO] redfin-finder-mfh:   [139/142] Driving times + details for: 40-42 Upham St #1, Malden, MA 02148
+2026-04-15 14:49:14,121 [WARNING] src.scraper: 403 fetching details for property 187160997 (attempt 1)
+2026-04-15 14:49:26,426 [WARNING] src.scraper: 403 fetching details for property 187160997 (attempt 2)
+2026-04-15 14:49:32,262 [WARNING] src.scraper: 403 fetching details for property 187160997 (attempt 3)
+2026-04-15 14:49:44,926 [INFO] redfin-finder-mfh:   [140/142] Driving times + details for: 80 Main St #9, Malden, MA 02148
+2026-04-15 14:49:46,631 [WARNING] src.scraper: 403 fetching details for property 11391543 (attempt 1)
+2026-04-15 14:49:58,138 [WARNING] src.scraper: 403 fetching details for property 11391543 (attempt 2)
+2026-04-15 14:50:12,036 [WARNING] src.scraper: 403 fetching details for property 11391543 (attempt 3)
+2026-04-15 14:50:22,431 [INFO] redfin-finder-mfh:   [141/142] Driving times + details for: 80 Main St #4, Malden, MA 02148
+2026-04-15 14:50:24,120 [WARNING] src.scraper: 403 fetching details for property 11391525 (attempt 1)
+2026-04-15 14:50:33,573 [WARNING] src.scraper: 403 fetching details for property 11391525 (attempt 2)
+2026-04-15 14:50:48,017 [WARNING] src.scraper: 403 fetching details for property 11391525 (attempt 3)
+2026-04-15 14:51:01,451 [INFO] redfin-finder-mfh:   [142/142] Driving times + details for: 217-221 Highland Ave #2, Malden, MA 02148
+2026-04-15 14:51:03,115 [WARNING] src.scraper: 403 fetching details for property 137151214 (attempt 1)
+2026-04-15 14:51:14,980 [WARNING] src.scraper: 403 fetching details for property 137151214 (attempt 2)
+2026-04-15 14:51:22,996 [WARNING] src.scraper: 403 fetching details for property 137151214 (attempt 3)
+2026-04-15 14:51:34,814 [INFO] redfin-finder-mfh:   Dropped 142 non-MFH listings after enrichment
+2026-04-15 14:51:34,834 [INFO] redfin-finder-mfh: Step 6/6: Building MFH Excel workbook (0 listings)...
+2026-04-15 14:51:35,243 [INFO] redfin-finder-mfh: Workbook saved: C:\Users\Zara\Documents\GitHub\Personal-Projects\home-finder\data\listings_mfh_20260415_133240.xlsx
+2026-04-15 14:51:35,306 [INFO] redfin-finder-mfh: Updated main MFH workbook: C:\Users\Zara\Documents\GitHub\Personal-Projects\home-finder\data\listings_mfh.xlsx
+2026-04-15 14:51:35,314 [INFO] redfin-finder-mfh: Store saved: 0 MFH listings
+2026-04-15 14:51:35,317 [INFO] redfin-finder-mfh: ============================================================
+2026-04-15 14:51:35,318 [INFO] redfin-finder-mfh: MFH run complete in 4734.4 seconds
+2026-04-15 14:51:35,319 [INFO] redfin-finder-mfh: Total listings in workbook: 0 (new: 0, removed: 0)
+2026-04-15 14:51:35,319 [INFO] redfin-finder-mfh:   Green: 0 | Yellow: 0 | Red: 0
+2026-04-15 14:51:35,320 [INFO] redfin-finder-mfh: ============================================================

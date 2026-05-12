@@ -146,5 +146,169 @@
   "02478": {
     "region_id": "773",
     "region_type": "2"
+  },
+  "02148": {
+    "region_id": "651",
+    "region_type": "2"
+  },
+  "95014": {
+    "region_id": "39365",
+    "region_type": "2"
+  },
+  "95015": {
+    "region_id": "39366",
+    "region_type": "2"
+  },
+  "94085": {
+    "region_id": "39001",
+    "region_type": "2"
+  },
+  "94086": {
+    "region_id": "39002",
+    "region_type": "2"
+  },
+  "94087": {
+    "region_id": "39003",
+    "region_type": "2"
+  },
+  "94089": {
+    "region_id": "39005",
+    "region_type": "2"
+  },
+  "94040": {
+    "region_id": "38985",
+    "region_type": "2"
+  },
+  "94041": {
+    "region_id": "38986",
+    "region_type": "2"
+  },
+  "94043": {
+    "region_id": "38988",
+    "region_type": "2"
+  },
+  "94301": {
+    "region_id": "39141",
+    "region_type": "2"
+  },
+  "94303": {
+    "region_id": "39143",
+    "region_type": "2"
+  },
+  "94304": {
+    "region_id": "39144",
+    "region_type": "2"
+  },
+  "94306": {
+    "region_id": "39146",
+    "region_type": "2"
+  },
+  "95110": {
+    "region_id": "39416",
+    "region_type": "2"
+  },
+  "95112": {
+    "region_id": "39418",
+    "region_type": "2"
+  },
+  "95113": {
+    "region_id": "39419",
+    "region_type": "2"
+  },
+  "95120": {
+    "region_id": "39425",
+    "region_type": "2"
+  },
+  "95124": {
+    "region_id": "39429",
+    "region_type": "2"
+  },
+  "95125": {
+    "region_id": "39430",
+    "region_type": "2"
+  },
+  "95126": {
+    "region_id": "39431",
+    "region_type": "2"
+  },
+  "95128": {
+    "region_id": "39433",
+    "region_type": "2"
+  },
+  "95129": {
+    "region_id": "39434",
+    "region_type": "2"
+  },
+  "95130": {
+    "region_id": "39435",
+    "region_type": "2"
+  },
+  "95131": {
+    "region_id": "39436",
+    "region_type": "2"
+  },
+  "95132": {
+    "region_id": "39437",
+    "region_type": "2"
+  },
+  "95134": {
+    "region_id": "39439",
+    "region_type": "2"
+  },
+  "95050": {
+    "region_id": "39390",
+    "region_type": "2"
+  },
+  "95051": {
+    "region_id": "39391",
+    "region_type": "2"
+  },
+  "95054": {
+    "region_id": "39394",
+    "region_type": "2"
+  },
+  "95070": {
+    "region_id": "39405",
+    "region_type": "2"
+  },
+  "94022": {
+    "region_id": "38973",
+    "region_type": "2"
+  },
+  "94024": {
+    "region_id": "38975",
+    "region_type": "2"
+  },
+  "95008": {
+    "region_id": "39359",
+    "region_type": "2"
+  },
+  "95030": {
+    "region_id": "39375",
+    "region_type": "2"
+  },
+  "95032": {
+    "region_id": "39377",
+    "region_type": "2"
+  },
+  "95035": {
+    "region_id": "39379",
+    "region_type": "2"
+  },
+  "94061": {
+    "region_id": "38991",
+    "region_type": "2"
+  },
+  "94062": {
+    "region_id": "38992",
+    "region_type": "2"
+  },
+  "94063": {
+    "region_id": "38993",
+    "region_type": "2"
+  },
+  "94025": {
+    "region_id": "38976",
+    "region_type": "2"
   }
 }

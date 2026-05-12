@@ -15,6 +15,7 @@ import json
 import logging
 import random
 import time
+from datetime import datetime, timedelta
 from typing import Any
 
 import requests
@@ -197,13 +198,18 @@ def search_zip(
     region_id: str,
     region_type: str = "2",
     max_price: int = MAX_PRICE,
+    uipt: str | None = None,
 ) -> list[dict[str, Any]]:
     """
     Query Redfin GIS endpoint for for-sale listings in a given region.
 
+    Args:
+        uipt: Optional comma-separated Redfin property-type filter
+              (e.g. "4" for multi-family, "1,2,3" for house/condo/townhouse).
+
     Returns raw home dicts from the API payload.
     """
-    params = {
+    params: dict[str, Any] = {
         "al": 1,
         "num_homes": 350,
         "region_id": region_id,
@@ -212,6 +218,8 @@ def search_zip(
         "v": 8,
         "max_price": max_price,
     }
+    if uipt:
+        params["uipt"] = uipt
 
     for attempt in range(MAX_RETRIES):
         try:
@@ -319,6 +327,38 @@ def extract_listing(home: dict[str, Any], town_name: str) -> dict[str, Any] | No
     else:
         parking = "Unknown"
 
+    # ── Listed Date ──────────────────────────────────────────────────────
+    time_on_redfin = _safe_get(home, "timeOnRedfin")
+    if time_on_redfin is not None:
+        try:
+            listed_dt = datetime.now() - timedelta(milliseconds=int(time_on_redfin))
+            listed_date = listed_dt.strftime("%Y-%m-%d")
+        except (ValueError, TypeError, OSError):
+            listed_date = None
+    else:
+        listed_date = None
+
+    # ── Open House (next scheduled, if any) ─────────────────────────────
+    # Redfin GIS exposes the next open house as ms-since-epoch timestamps.
+    open_house_start_ms = _safe_get(home, "openHouseStart")
+    open_house_end_ms = _safe_get(home, "openHouseEnd")
+    open_house_label = _safe_get(home, "openHouseEventName") or _safe_get(home, "openHouseStartFormatted")
+
+    def _ms_to_iso(ms: Any) -> str | None:
+        if ms is None:
+            return None
+        try:
+            return datetime.fromtimestamp(int(ms) / 1000).isoformat()
+        except (ValueError, TypeError, OSError):
+            return None
+
+    open_house_start = _ms_to_iso(open_house_start_ms)
+    open_house_end = _ms_to_iso(open_house_end_ms)
+
+    # ── Property type (integer code from Redfin GIS) ─────────────────────
+    property_type = _safe_get(home, "propertyType")
+    ui_property_type = _safe_get(home, "uiPropertyType")
+
     return {
         "zpid": str(property_id),       # reuse key name for dedup compatibility
         "address": address,
@@ -335,38 +375,207 @@ def extract_listing(home: dict[str, Any], town_name: str) -> dict[str, Any] | No
         "latitude": latitude,
         "longitude": longitude,
         "town": town_name,
+        "listed_date": listed_date,
+        "open_house_start": open_house_start,
+        "open_house_end": open_house_end,
+        "open_house_label": open_house_label,
+        "property_type": property_type,
+        "ui_property_type": ui_property_type,
     }
+
+
+# ─── Per-Listing Detail ─────────────────────────────────────────────────────
+
+def _detect_parking_features(text_lower: str) -> list[str]:
+    """Detect parking feature categories from Redfin detail response text.
+
+    Scans the lowercased response for parking-related keywords and returns
+    a de-duplicated list of human-readable labels (e.g. "Garage", "Driveway",
+    "Street parking"). Returns ["None"] if an explicit no-parking signal is
+    found and no positive signals match.
+    """
+    features: list[str] = []
+
+    def _add(label: str) -> None:
+        if label not in features:
+            features.append(label)
+
+    # Positive signals (ordered by specificity / desirability)
+    if "attached garage" in text_lower:
+        _add("Attached garage")
+    elif "detached garage" in text_lower:
+        _add("Detached garage")
+    elif "garage" in text_lower:
+        _add("Garage")
+
+    if "carport" in text_lower:
+        _add("Carport")
+
+    if "driveway" in text_lower or "off street" in text_lower or "off-street" in text_lower:
+        _add("Driveway / off-street")
+
+    if "assigned parking" in text_lower or "deeded parking" in text_lower or "deeded space" in text_lower:
+        _add("Assigned / deeded")
+
+    if "covered parking" in text_lower and "Attached garage" not in features and "Carport" not in features:
+        _add("Covered parking")
+
+    if "on street" in text_lower or "on-street" in text_lower or "street parking" in text_lower:
+        _add("Street parking")
+
+    if not features:
+        if "no parking" in text_lower or "parking: none" in text_lower:
+            return ["None"]
+
+    return features
+
+
+def _detect_mfh_units(text: str) -> dict[str, Any]:
+    """Parse unit count and per-unit bedroom counts from Redfin detail text.
+
+    Scans the raw response for common multi-family patterns. Returns:
+        {"num_units": int | None, "unit_bedrooms": list[int]}
+
+    unit_bedrooms is empty when per-unit breakdowns can't be parsed.
+    """
+    import re as _re
+
+    result: dict[str, Any] = {"num_units": None, "unit_bedrooms": []}
+
+    # Number of units: match "Number of Units: 2", "# of Units: 2", "Total Units: 2"
+    num_units_patterns = [
+        r'"(?:number\s*of\s*units|total\s*number\s*of\s*units|total\s*units|#\s*of\s*units|num\s*units)"\s*[:,]\s*"?(\d+)"?',
+        r'(?:number\s*of\s*units|total\s*number\s*of\s*units|total\s*units|#\s*of\s*units)\s*[:=]\s*(\d+)',
+    ]
+    for pat in num_units_patterns:
+        m = _re.search(pat, text, _re.IGNORECASE)
+        if m:
+            try:
+                n = int(m.group(1))
+                if 1 <= n <= 20:
+                    result["num_units"] = n
+                    break
+            except ValueError:
+                pass
+
+    # Per-unit bedrooms: "Unit 1 Bedrooms: 3", "Unit 2 Beds: 2", etc.
+    # Collect (unit_number, bedrooms) pairs then sort.
+    unit_bed_pattern = _re.compile(
+        r'unit\s*(\d+)[^"\n\r:]{0,40}?(?:bed(?:room)?s?|br)[^"\n\r:]*?[:=]\s*"?(\d+)"?',
+        _re.IGNORECASE,
+    )
+    pairs: dict[int, int] = {}
+    for m in unit_bed_pattern.finditer(text):
+        try:
+            unit_num = int(m.group(1))
+            beds_n = int(m.group(2))
+            if 1 <= unit_num <= 20 and 0 <= beds_n <= 15:
+                pairs.setdefault(unit_num, beds_n)
+        except ValueError:
+            continue
+
+    if pairs:
+        ordered = [pairs[k] for k in sorted(pairs.keys())]
+        result["unit_bedrooms"] = ordered
+        # If we parsed per-unit data but no num_units, infer it
+        if result["num_units"] is None:
+            result["num_units"] = len(ordered)
+
+    return result
+
+
+def fetch_listing_details(property_id: str) -> dict[str, Any] | None:
+    """
+    Fetch richer detail info for a listing via Redfin's belowTheFold API.
+
+    Returns a dict with:
+        in_unit_laundry: bool | None — True if in-unit washer/dryer detected
+        parking_features: list[str]  — detected parking types (may be empty)
+        num_units: int | None        — total units for multi-family homes
+        unit_bedrooms: list[int]     — bedrooms per unit (may be empty)
+
+    Returns None on repeated fetch failure.
+    """
+    for attempt in range(MAX_RETRIES):
+        try:
+            resp = _session.get(
+                "https://www.redfin.com/stingray/api/home/details/belowTheFold",
+                params={"propertyId": property_id, "accessLevel": 1},
+                headers=_redfin_headers(),
+                timeout=20,
+            )
+
+            if resp.status_code == 403:
+                logger.warning("403 fetching details for property %s (attempt %d)",
+                               property_id, attempt + 1)
+                _delay(5, 15)
+                continue
+
+            resp.raise_for_status()
+
+            text = resp.text
+            if text.startswith("{}&&"):
+                text = text[4:]
+
+            text_lower = text.lower()
+
+            in_unit = "in unit" in text_lower or "in-unit" in text_lower
+            laundry = any(kw in text_lower for kw in ("laundry", "washer", "dryer"))
+            parking_features = _detect_parking_features(text_lower)
+            mfh_info = _detect_mfh_units(text)
+
+            _delay()
+            return {
+                "in_unit_laundry": in_unit and laundry,
+                "parking_features": parking_features,
+                "num_units": mfh_info["num_units"],
+                "unit_bedrooms": mfh_info["unit_bedrooms"],
+            }
+
+        except (json.JSONDecodeError, requests.RequestException):
+            logger.exception("Failed to fetch details for property %s (attempt %d)",
+                             property_id, attempt + 1)
+            if attempt < MAX_RETRIES - 1:
+                _delay(3, 8)
+
+    return None
+
+
 
 
 # ─── Deduplication ──────────────────────────────────────────────────────────
 
-def load_seen_ids() -> set[str]:
+def load_seen_ids(path: Any = SEEN_IDS_FILE) -> set[str]:
     """Load previously seen listing IDs from disk."""
-    if SEEN_IDS_FILE.exists():
+    if path.exists():
         try:
-            data = json.loads(SEEN_IDS_FILE.read_text())
+            data = json.loads(path.read_text())
             return set(str(x) for x in data)
         except (json.JSONDecodeError, TypeError):
             return set()
     return set()
 
 
-def save_seen_ids(ids: set[str]) -> None:
+def save_seen_ids(ids: set[str], path: Any = SEEN_IDS_FILE) -> None:
     """Persist seen listing IDs to disk."""
-    SEEN_IDS_FILE.parent.mkdir(parents=True, exist_ok=True)
-    SEEN_IDS_FILE.write_text(json.dumps(sorted(ids)))
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(sorted(ids)))
 
 
 # ─── Main Scrape Orchestrator ───────────────────────────────────────────────
 
-def scrape_all_towns(proxy_url: str | None = None) -> tuple[list[dict[str, Any]], set[str]]:
+def scrape_all_towns(
+    proxy_url: str | None = None,
+    uipt: str | None = None,
+    seen_ids_path: Any = SEEN_IDS_FILE,
+) -> tuple[list[dict[str, Any]], set[str]]:
     """
     Scrape all configured ZIP codes via Redfin GIS endpoint.
-    
-    Resolves each ZIP in ALLOWED_TOWNS to a Redfin region_id (cached after
-    first run), then queries the GIS endpoint for each ZIP individually.
-    This ensures full coverage of multi-ZIP cities like Waltham and Newton.
-    
+
+    Args:
+        uipt: Redfin property-type filter (e.g. "4" for multi-family).
+        seen_ids_path: Override the seen-IDs file (separates SFH and MFH runs).
+
     Returns:
         new_listings: listing dicts not previously seen (need enrichment).
         active_ids:   set of ALL property IDs currently on Redfin, used by
@@ -374,63 +583,57 @@ def scrape_all_towns(proxy_url: str | None = None) -> tuple[list[dict[str, Any]]
     """
     if proxy_url:
         _session.proxies = {"http": proxy_url, "https": proxy_url}
-    
-    # Build ZIP -> town name mapping
+
     zip_to_town: dict[str, str] = {}
     for town in ALLOWED_TOWNS:
         for z in town["zips"]:
             zip_to_town[z] = town["name"]
-    
-    # Resolve all ZIPs to Redfin region IDs
+
     region_cache = resolve_all_zips()
-    
-    seen_ids = load_seen_ids()
+
+    seen_ids = load_seen_ids(seen_ids_path)
     new_listings: list[dict[str, Any]] = []
     active_ids: set[str] = set()
-    
+
     for zip_code, town_name in zip_to_town.items():
         region_info = region_cache.get(zip_code)
         if not region_info:
             logger.warning("No region_id for ZIP %s (%s), skipping", zip_code, town_name)
             continue
-    
+
         region_id = region_info["region_id"]
         region_type = region_info["region_type"]
         label = f"{town_name} ({zip_code})"
-    
+
         logger.info("Searching %s (region_id=%s)...", label, region_id)
-    
-        homes = search_zip(label, region_id, region_type)
-        _delay(2, 5)  # polite delay between ZIP queries
-    
+
+        homes = search_zip(label, region_id, region_type, uipt=uipt)
+        _delay(2, 5)
+
         for home in homes:
             listing = extract_listing(home, town_name)
             if listing is None:
                 continue
-    
+
             pid = listing["zpid"]
-            active_ids.add(pid)  # Track every listing Redfin currently shows
-    
+            active_ids.add(pid)
+
             if pid in seen_ids:
-                continue  # Already processed — skip enrichment
-    
-            # Fill defaults for missing fields
+                continue
+
             if listing["hoa"] is None:
                 listing["hoa"] = 0
-            if listing["in_unit_laundry"] is None:
-                listing["in_unit_laundry"] = False
             if listing["parking"] is None:
                 listing["parking"] = "Unknown"
-    
+
             new_listings.append(listing)
             seen_ids.add(pid)
-    
-    # Prune seen_ids of listings no longer on Redfin
+
     stale_ids = seen_ids - active_ids
     if stale_ids:
         logger.info("Removing %d stale IDs from seen_ids", len(stale_ids))
         seen_ids -= stale_ids
-    
-    save_seen_ids(seen_ids)
+
+    save_seen_ids(seen_ids, seen_ids_path)
     logger.info("Total new listings found: %d | Active on Redfin: %d", len(new_listings), len(active_ids))
     return new_listings, active_ids

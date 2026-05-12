@@ -14,6 +14,23 @@ class TownEntry(TypedDict):
     zillow_slug: str   # kept for reference; not used by Redfin scraper
     zips: list[str]
 
+# ─── Scraper Settings ───────────────────────────────────────────────────────
+SCRAPE_DELAY_MIN = 3      # seconds between page loads (min)
+SCRAPE_DELAY_MAX = 8      # seconds between page loads (max)
+REQUEST_TIMEOUT = 30_000  # milliseconds for Playwright page timeout
+MAX_RETRIES = 3
+USER_AGENTS = [
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
+    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
+]
+
+# ─── OSRM Settings ──────────────────────────────────────────────────────────
+OSRM_BASE_URL = "https://router.project-osrm.org/route/v1/driving"
+NOMINATIM_BASE_URL = "https://nominatim.openstreetmap.org/search"
+OSRM_DELAY = 1.1  # seconds between requests (public server rate limit ~1 req/s)
+
 # ─── Paths ───────────────────────────────────────────────────────────────────
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 DATA_DIR = PROJECT_ROOT / "data"
@@ -21,6 +38,11 @@ LISTINGS_XLSX = DATA_DIR / "listings.xlsx"
 SEEN_IDS_FILE = DATA_DIR / "seen_ids.json"
 REGION_CACHE_FILE = DATA_DIR / "region_cache.json"
 LISTINGS_STORE = DATA_DIR / "listings_store.json"
+
+# Multi-family variants — separate files so MFH and SFH runs don't overwrite each other
+LISTINGS_XLSX_MFH = DATA_DIR / "listings_mfh.xlsx"
+SEEN_IDS_FILE_MFH = DATA_DIR / "seen_ids_mfh.json"
+LISTINGS_STORE_MFH = DATA_DIR / "listings_store_mfh.json"
 
 # ─── Price / HOA Filters ────────────────────────────────────────────────────
 MAX_PRICE = 600_000
@@ -41,6 +63,7 @@ ALLOWED_TOWNS: list[TownEntry] = [
     {"name": "Medford",     "zillow_slug": "medford-ma",     "zips": ["02155", "02156"]},
     {"name": "Arlington",   "zillow_slug": "arlington-ma",   "zips": ["02474", "02476"]},
     {"name": "Belmont",     "zillow_slug": "belmont-ma",     "zips": ["02478"]},
+    {"name": "Malden",      "zillow_slug": "malden-ma",      "zips": ["02148"]},
 ]
 
 # Flat set of all allowed ZIP codes for fast lookup
@@ -274,21 +297,32 @@ FALLBACK_RENTS = {
     "Medford":    1_900,
     "Arlington":  2_000,
     "Belmont":    2_100,
+    "Malden":     1_850,
 }
 
-# ─── Scraper Settings ───────────────────────────────────────────────────────
-SCRAPE_DELAY_MIN = 3      # seconds between page loads (min)
-SCRAPE_DELAY_MAX = 8      # seconds between page loads (max)
-REQUEST_TIMEOUT = 30_000  # milliseconds for Playwright page timeout
-MAX_RETRIES = 3
-USER_AGENTS = [
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36",
-    "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:133.0) Gecko/20100101 Firefox/133.0",
-]
+# Silicon Valley defaults
+# # ─── Price / HOA Filters ────────────────────────────────────────────────────
+# MAX_PRICE = 3_000_000   # Your new $3M limit
+# MAX_HOA_MONTHLY = 500   # Your new $500/mo cap
 
-# ─── OSRM Settings ──────────────────────────────────────────────────────────
-OSRM_BASE_URL = "https://router.project-osrm.org/route/v1/driving"
-NOMINATIM_BASE_URL = "https://nominatim.openstreetmap.org/search"
-OSRM_DELAY = 1.1  # seconds between requests (public server rate limit ~1 req/s)
+# # ─── Location Allow-list (Approx. 25mi from Cupertino) ──────────────────────
+# # Includes major cities in Santa Clara and San Mateo Counties
+# ALLOWED_TOWNS: list[TownEntry] = [
+#     {"name": "Cupertino",     "zips": ["95014", "95015"]},
+#     {"name": "Sunnyvale",     "zips": ["94085", "94086", "94087", "94089"]},
+#     {"name": "Mountain View", "zips": ["94040", "94041", "94043"]},
+#     {"name": "Palo Alto",     "zips": ["94301", "94303", "94304", "94306"]},
+#     {"name": "San Jose",      "zips": ["95110", "95112", "95113", "95120", "95124", "95125", "95126", "95128", "95129", "95130", "95131", "95132", "95134"]},
+#     {"name": "Santa Clara",   "zips": ["95050", "95051", "95054"]},
+#     {"name": "Saratoga",      "zips": ["95070"]},
+#     {"name": "Los Altos",     "zips": ["94022", "94024"]},
+#     {"name": "Campbell",      "zips": ["95008"]},
+#     {"name": "Los Gatos",     "zips": ["95030", "95032"]},
+#     {"name": "Milpitas",      "zips": ["95035"]},
+#     {"name": "Redwood City",  "zips": ["94061", "94062", "94063"]},
+#     {"name": "Menlo Park",    "zips": ["94025"]},
+# ]
+
+# # Clear blocks to ensure full "no other restrictions" coverage
+# BLOCKED_NEIGHBORHOODS = []
+# BLOCKED_ZIPS = set()

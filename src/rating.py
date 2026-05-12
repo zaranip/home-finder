@@ -92,9 +92,14 @@ def score_listing(listing: dict[str, Any]) -> tuple[float, str, dict[str, int]]:
     scores["in_unit_laundry"] = _score_boolean(listing.get("in_unit_laundry"))
 
     # Parking
-    parking = listing.get("parking", "")
-    has_parking = bool(parking and parking.lower() not in ("none listed", "none", ""))
-    scores["parking"] = _score_boolean(has_parking)
+    parking = listing.get("parking", "") or ""
+    parking_lc = parking.lower()
+    if not parking or parking_lc in ("none listed", "none", "unknown", ""):
+        scores["parking"] = _score_boolean(None if parking_lc in ("", "unknown") else False)
+    elif "no parking" in parking_lc or parking_lc.strip() == "none":
+        scores["parking"] = _score_boolean(False)
+    else:
+        scores["parking"] = _score_boolean(True)
 
     # Size (sqft / bedrooms)
     sqft = listing.get("sqft")
@@ -130,6 +135,7 @@ def estimate_net_monthly_cost(
     price: int | float,
     hoa: int | float,
     rental_estimate: int | float,
+    beds: int | None = None,
     interest_rate: float = 0.065,
     down_payment: int | float = 20_000,
     loan_term_years: int = 30,
@@ -159,6 +165,7 @@ def estimate_net_monthly_cost(
 
     property_tax_mo = price * property_tax_rate / 12
     total = mortgage + hoa + property_tax_mo + insurance_monthly + utilities_monthly + internet_monthly
-    net = total - rental_estimate
+    num_roommates = max((beds or 1) - 1, 0)
+    net = total - rental_estimate * num_roommates
 
     return round(net, 2)
